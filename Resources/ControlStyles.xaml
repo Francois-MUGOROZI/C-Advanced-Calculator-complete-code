@@ -1,0 +1,357 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    
+    <!--Windows  styles-->
+
+    <Style x:Key="WindowStyle" TargetType="{x:Type Window}">
+        <Setter Property="Background" Value="#272727"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Opacity" Value="1"/>
+        <Setter Property="Foreground" Value="Bisque"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="WindowState" Value="Normal"/>
+
+    </Style>
+    
+    
+    <!--Numbers input button style-->
+
+    <Style x:Key="NumBtnStyle" TargetType="{x:Type Button}">
+        <Setter Property="Foreground" Value="Beige"/>
+        <Setter Property="Opacity" Value="0.6"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border   Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="#282828" />
+                            <Setter Property="Background" Value="Beige" />
+
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="BorderBrush" Value="White" />
+                            <Setter Property="BorderThickness" Value="3" />
+                            <Setter Property="Background" Value="DarkGray" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" Value="0.25"/>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!--Function button style-->
+
+    <Style x:Key="FuncBtnStyle" TargetType="{x:Type Button}">
+        <Setter Property="Foreground" Value="Beige"/>
+        <Setter Property="Opacity" Value="0.5"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border   Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="#282828" />
+                            <Setter Property="Background" Value="Beige" />
+
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="BorderBrush" Value="White" />
+                            <Setter Property="BorderThickness" Value="3" />
+                            <Setter Property="Background" Value="DarkGray" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" Value="0.25"/>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Control button style-->
+
+    <Style x:Key="CtrlBtnStyle" TargetType="{x:Type Button}">
+        <Setter Property="Foreground" Value="DarkGray"/>
+        <Setter Property="Opacity" Value="0.7"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border   Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="#282828" />
+                            <Setter Property="Background" Value="Beige" />
+                            <Setter Property="Opacity" Value="0.8"/>
+
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="BorderBrush" Value="White" />
+                            <Setter Property="BorderThickness" Value="3" />
+                            <Setter Property="Background" Value="LightGray" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" Value="0.25"/>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!--Misc button style-->
+
+    <Style x:Key="MscBtnStyle" TargetType="{x:Type Button}">
+        <Setter Property="Foreground" Value="LightGray"/>
+        <Setter Property="Opacity" Value="0.9"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border   Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="#282828" />
+                            <Setter Property="Background" Value="Beige" />
+                            <Setter Property="Opacity" Value="0.6"/>
+
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="BorderBrush" Value="White" />
+                            <Setter Property="BorderThickness" Value="3" />
+                            <Setter Property="Background" Value="DarkGray" />
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Option button style-->
+
+    <Style x:Key="OpBtnStyle" TargetType="{x:Type Button}">
+        <Setter Property="Foreground" Value="LightBlue"/>
+        <Setter Property="Opacity" Value="0.8"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border   Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="#282828" />
+                            <Setter Property="Background" Value="LightBlue" />
+                            <Setter Property="Opacity" Value="0.6"/>
+
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="BorderBrush" Value="White" />
+                            <Setter Property="BorderThickness" Value="3" />
+                            <Setter Property="Background" Value="DarkGray" />
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!--ListView style-->
+
+    <Style x:Key="ListViewStyle" TargetType="{x:Type ListView}">
+        <Setter Property="Background" Value="#282828"/>
+        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="Opacity" Value="0.9"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="SelectionMode" Value="Single"/>
+
+
+    </Style>
+
+    <Style x:Key="ListViewItemStyle" TargetType="{x:Type ListViewItem}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="Opacity" Value="0.9"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Height" Value="25"/>
+
+       
+    </Style>
+
+    <!--Combo box style-->
+
+    <Style x:Key="ComboStyle" TargetType="{x:Type ComboBox}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Opacity" Value="0.6"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="OpacityMask" Value="AliceBlue"/>
+    </Style>
+
+    <Style x:Key="ComboItemStyle" TargetType="{x:Type ComboBoxItem}">
+        <Setter Property="Background" Value="#282828"/>
+        <Setter Property="Foreground" Value="Beige"/>
+        <Setter Property="Opacity" Value="0.8"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        
+    </Style>
+
+    <!--General text box style-->
+
+    <Style x:Key="TextboxStyle" TargetType="{x:Type TextBox}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="LightGray"/>
+        <Setter Property="Opacity" Value="0.7"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="CaretBrush" Value="White"/>
+        <Setter Property="HorizontalContentAlignment" Value="Right"/>
+        <Setter Property="HorizontalScrollBarVisibility" Value="Hidden"/>
+
+    </Style>
+    
+    <!--Menu style-->
+
+    <Style x:Key="MenuStyle" TargetType="{x:Type Menu}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Opacity" Value="0.7"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Height" Value="25"/>
+        
+
+    </Style>
+
+    
+    <Style x:Key="MenuItemStyle" TargetType="{x:Type MenuItem}">
+        <Setter Property="Background" Value="#282828"/>
+        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Opacity" Value="0.9"/>
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Width" Value="auto"/>
+        <Setter Property="BorderBrush" Value="#282828"/>
+       
+
+    </Style>
+
+    <!--General label style-->
+
+    <Style x:Key="LabelStyle" TargetType="{x:Type Label}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="Beige"/>
+        <Setter Property="Opacity" Value="0.7"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+    
+    <!--Radio button style-->
+    <Style x:Key="RadioStyle" TargetType="{x:Type RadioButton}">
+  
+        <Setter Property="Foreground" Value="Beige"/>
+        <Setter Property="Opacity" Value="0.5"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Visibility" Value="Visible"/>
+
+       
+    </Style>
+    
+    <!--Memory style-->
+    <Style x:Key="MemoStyle" TargetType="{x:Type ListBox}">
+        <Setter Property="Background" Value="#282828"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Opacity" Value="0.8"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="SelectionMode" Value="Single"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+    
+    <!--Histroy style-->
+    <Style x:Key="HistStyle" TargetType="{x:Type RichTextBox}">
+        <Setter Property="Background" Value="#282828"/>
+        <Setter Property="Foreground" Value="Beige"/>
+        <Setter Property="Opacity" Value="0.9"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CaretBrush" Value="White"/>
+        <Setter Property="Padding" Value="30"/> 
+        <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+    </Style>
+    
+    <!--DataGrid style-->
+    <Style x:Key="Dataviewstyle" TargetType="DataGrid">
+        <Setter Property="Background" Value="#282828"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="CanUserAddRows" Value="False"/>
+        <Setter Property="CanUserDeleteRows" Value="False"/>
+        <Setter Property="CanUserReorderColumns" Value="False"/>
+        <Setter Property="CanUserResizeColumns" Value="True"/>
+        <Setter Property="CanUserResizeRows" Value="True"/>
+        <Setter Property="CanUserSortColumns" Value="True"/>
+        <Setter Property="ColumnHeaderHeight" Value="35"/>
+        <Setter Property="ColumnWidth" Value="auto"/>
+        <Setter Property="GridLinesVisibility" Value="All"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="HorizontalGridLinesBrush" Value="LightGray"/>
+        <Setter Property="VerticalGridLinesBrush" Value="LightGray"/>
+        <Setter Property="Opacity" Value="0.7"/>
+        <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="RowBackground" Value="White"/>
+        <Setter Property="AutoGenerateColumns" Value="False"/>
+        
+    </Style>
+  
+</ResourceDictionary>

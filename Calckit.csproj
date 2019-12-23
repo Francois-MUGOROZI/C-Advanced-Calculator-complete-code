@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BF936619-CCBE-4137-A2BA-73A27BBAB630}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Calckit</RootNamespace>
+    <AssemblyName>Calckit</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ColorPickerWPF">
+      <HintPath>..\..\ColorPickerWPF-master\ColorPickerWPF-master\src\ColorPickerWPF\obj\Release\ColorPickerWPF.dll</HintPath>
+    </Reference>
+    <Reference Include="InfoUnitsConverterlib">
+      <HintPath>..\..\InfoUnitsConverterlib\bin\Release\InfoUnitsConverterlib.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Subnettinglib">
+      <HintPath>..\..\Calkit\Subnettinglib\bin\Release\Subnettinglib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="TimeConverterlib">
+      <HintPath>..\..\TimeConverterlib\bin\Release\TimeConverterlib.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UnitsConverterlib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\UnitsConverterlib\bin\Release\UnitsConverterlib.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WriteableBitmapEx.Wpf">
+      <HintPath>..\..\ColorPickerWPF-master\ColorPickerWPF-master\artifacts\WriteableBitmapEx.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="xFunc.Maths, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\xFunc-master\xFunc-master\xFunc.Maths\bin\Release\net40\xFunc.Maths.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Calculations\AdvTimeCalc.cs" />
+    <Compile Include="Calculations\ColorsConverter.cs" />
+    <Compile Include="Calculations\DigitalHandle.cs" />
+    <Compile Include="FileHandle\XmlHandler.cs" />
+    <Compile Include="GUIsHandle\PickColorHandle.cs" />
+    <Compile Include="Resources\UnitsMults\JouleMults.cs" />
+    <Compile Include="Resources\UnitsMults\KilogMults.cs" />
+    <Compile Include="Resources\UnitsMults\M3Mults.cs" />
+    <Compile Include="Resources\UnitsMults\MetersMults.cs" />
+    <Compile Include="Resources\UnitsMults\MetersqrMults.cs" />
+    <Compile Include="Resources\UnitsMults\MPSMults.cs" />
+    <Compile Include="Resources\UnitsMults\PascaMults.cs" />
+    <Compile Include="Resources\UnitsMultts.cs" />
+    <Compile Include="Resources\UnitsMults\WattMults.cs" />
+    <Page Include="GUIs\ColorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUIs\ConstFormWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUIs\ConverterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUIs\DateTimeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUIs\DigitalWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUIs\HelpWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUIs\Scientific_Calckit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUIs\StdCackWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Calculations\Calculate.cs" />
+    <Compile Include="FileHandle\WriteHistory.cs" />
+    <Compile Include="GUIsHandle\ButtonHandle.cs" />
+    <Compile Include="FileHandle\SaveHistHandle.cs" />
+    <Compile Include="GUIs\ColorWindow.xaml.cs">
+      <DependentUpon>ColorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUIs\ConstFormWindow.xaml.cs">
+      <DependentUpon>ConstFormWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUIs\ConverterWindow.xaml.cs">
+      <DependentUpon>ConverterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUIs\DateTimeWindow.xaml.cs">
+      <DependentUpon>DateTimeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUIs\DigitalWindow.xaml.cs">
+      <DependentUpon>DigitalWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUIs\HelpWindow.xaml.cs">
+      <DependentUpon>HelpWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUIs\Scientific_Calckit.xaml.cs">
+      <DependentUpon>Scientific_Calckit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUIs\StdCackWindow.xaml.cs">
+      <DependentUpon>StdCackWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="GUIs\PromptWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ControlStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GUIs\PromptWindow.xaml.cs">
+      <DependentUpon>PromptWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SettingsHandle\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\UnitsMults\UnitMultiples.xml" />
+    <Resource Include="Resources\UnitsFile.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Constants.xml">
+      <SubType>Designer</SubType>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Formulas.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\HelpImages\StdPrev.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\HelpImages\ScintPrev.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\HelpImages\ColorPrev.png" />
+    <Resource Include="Resources\HelpImages\Colorprev2.png" />
+    <Resource Include="Resources\HelpImages\ColorPrev3.png" />
+    <Resource Include="Resources\HelpImages\ConstPrev.png" />
+    <Resource Include="Resources\HelpImages\ConstPrev2.png" />
+    <Resource Include="Resources\HelpImages\Convprev.png" />
+    <Resource Include="Resources\HelpImages\Dateprev.png" />
+    <Resource Include="Resources\HelpImages\DatePrev2.png" />
+    <Resource Include="Resources\HelpImages\DatePrev3.png" />
+    <Resource Include="Resources\HelpImages\DatePrev4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\HelpImages\ConvPrev1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

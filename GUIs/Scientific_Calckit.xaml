@@ -1,0 +1,374 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calckit.GUIs" x:Class="Calckit.GUIs.Scientific_Calckit"
+        mc:Ignorable="d"
+        Title="Scientific-Calckit" Height="520" Width="580" MinHeight="500" MinWidth="550"
+        Style="{StaticResource WindowStyle}" Loaded="Window_Loaded"  Activated="Window_Activated" WindowStartupLocation="CenterOwner" MaxWidth="580" MaxHeight="520" KeyDown="Window_KeyDown" Closing="Window_Closing">
+    <Grid >
+
+        <!--Input numbers and operator and memory control button grid-->
+        <Grid Height="240" Width="300" Margin="10,219,240,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <!--Number buttons-->
+            <Button x:Name="Zero" Content="0" Grid.Column="0" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="Zero_Click"/>
+            <Button x:Name="Point" Content="." Grid.Column="1" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="Point_Click"/>
+            <Button x:Name="PlusMinus" Content="±" Grid.Column="2" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="PlusMinus_Click"/>
+            <Button x:Name="One" Content="1" Grid.Column="0" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="One_Click"/>
+            <Button x:Name="Two" Content="2" Grid.Column="1" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="Two_Click"/>
+            <Button x:Name="Three" Content="3" Grid.Column="2" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="Three_Click"/>
+            <Button x:Name="Four" Content="4" Grid.Column="0" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="Four_Click"/>
+            <Button x:Name="Five" Content="5" Grid.Column="1" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="Five_Click"/>
+            <Button x:Name="Six" Content="6" Grid.Column="2" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="Six_Click"/>
+            <Button x:Name="Seven" Content="7" Grid.Column="0" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="Seven_Click"/>
+            <Button x:Name="Eight" Content="8" Grid.Column="1" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="Eight_Click"/>
+            <Button x:Name="Nine" Content="9" Grid.Column="2" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="Nine_Click"/>
+
+            <!--Operator and constant buttons-->
+            <Button x:Name="Factorial" Content="n!" Grid.Column="3" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="Factorial_Click"/>
+            <Button x:Name="Xsqr" Content="x²" Grid.Column="4" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="Xsqr_Click"/>
+            <Button x:Name="E" Content="e" Grid.Column="3" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="E_Click"/>
+            <Button x:Name="Pi" Content="π" Grid.Column="3" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="Pi_Click"/>
+            <Button x:Name="LeftBr" Content="(" Grid.Column="3" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="LeftBr_Click"/>
+            <Button x:Name="RightBr" Content=")" Grid.Column="4" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="RightBr_Click"/>
+            <Button x:Name="Equal" Content="=" Grid.Column="5" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="Equal_Click_1"/>
+            <Button x:Name="Plus" Content="+" Grid.Column="5" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="Plus_Click"/>
+            <Button x:Name="Minus" Content="-" Grid.Column="5" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="Minus_Click"/>
+            <Button x:Name="Times" Content="*" Grid.Column="5" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="Times_Click"/>
+            <Button x:Name="Divide" Content="÷" Grid.Column="5" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="Divide_Click"/>
+            <Button x:Name="Modulo" Content="%" Grid.Column="4" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="Modulo_Click"/>
+            <Button x:Name="Tao" Content="tao" Grid.Column="4" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="Tao_Click"/>
+            <Button x:Name="Phi" Content="phi" Grid.Column="4" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="Phi_Click"/>
+
+            <!--Control Buttons-->
+            <Button x:Name="Ans" Content="Ans" Grid.Column="3" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="Ans_Click"/>
+            <Button x:Name="Delete" Content="&#xE94F;" Grid.Column="2" Grid.Row="1" Style="{StaticResource CtrlBtnStyle}" FontFamily="Segoe MDL2 Assets" Click="Delete_Click"/>
+            <Button x:Name="C" Content="C" Grid.Column="1" Grid.Row="1" Style="{StaticResource CtrlBtnStyle}" Click="C_Click"/>
+            <Button x:Name="CE" Content="CE" Grid.Column="0" Grid.Row="1" Style="{StaticResource CtrlBtnStyle}" Click="CE_Click"/>
+
+            <!--Memory BUttons-->
+            <Button x:Name="MC" Content="MC" Grid.Column="0" Grid.Row="0" Style="{StaticResource CtrlBtnStyle}" Click="MC_Click"/>
+            <Button x:Name="Mminus" Content="M-" Grid.Column="1" Grid.Row="0" Style="{StaticResource CtrlBtnStyle}" Click="Mminus_Click"/>
+            <Button x:Name="Mplus" Content="M+" Grid.Column="2" Grid.Row="0" Style="{StaticResource CtrlBtnStyle}" Click="Mplus_Click"/>
+            <Button x:Name="MR" Content="MR" Grid.Column="3" Grid.Row="0" Style="{StaticResource CtrlBtnStyle}" Click="MR_Click"/>
+            <Button x:Name="MS" Content="MS" Grid.Column="4" Grid.Row="0" Style="{StaticResource CtrlBtnStyle}" Click="MS_Click"/>
+            <Button x:Name="Mv" Content="M˅" Grid.Column="5" Grid.Row="0" Style="{StaticResource CtrlBtnStyle}" Click="Mv_Click"/>
+
+
+        </Grid>
+
+
+        <!--Text input box and controls-->
+        <Grid Width="520" Height="120" Margin="11,90,11,261">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <!--Radio button for degree-->
+            <RadioButton x:Name="Deg" Content="Deg" Grid.Column="0" Grid.Row="3" Style="{StaticResource RadioStyle}" IsChecked="True" Checked="Deg_Checked"/>
+            <RadioButton x:Name="Rad" Content="Rad" Grid.Column="1" Grid.Row="3" Style="{StaticResource RadioStyle}" Checked="Rad_Checked"/>
+            <RadioButton x:Name="Grad" Content="Grad" Grid.Column="2" Grid.Row="3" Style="{StaticResource RadioStyle}" Checked="Grad_Checked"/>
+
+
+            <!--Back and Forth buttons-->
+            <Button x:Name="Back" Content="&#xF0D5;"  FontWeight="Bold" Grid.Column="4" Grid.Row="3" Style="{StaticResource CtrlBtnStyle}" Click="Back_Click" FontFamily="Segoe MDL2 Assets"/>
+            <Button x:Name="Forth" Content="&#xF0D6;" FontWeight="Bold" Grid.Column="5" Grid.Row="3" Style="{StaticResource CtrlBtnStyle}" Click="Forth_Click" FontFamily="Segoe MDL2 Assets"/>
+
+            <!--TextBox for input-->
+
+            <TextBox x:Name="InputBox" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="7"
+                     Grid.RowSpan="3" Style="{StaticResource TextboxStyle}" HorizontalScrollBarVisibility="Auto"
+                     VerticalScrollBarVisibility="Auto" MaxLines="10" MouseDown="InputBox_MouseDown" Margin="0,19,10,0"/>
+
+        </Grid>
+
+        <!--First Functions buttons grid-->
+
+        <Grid x:Name="FuncBtn1" Height="240" Width="200" Margin="332,219,10,10"
+              Visibility="Visible">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="Yto3" Content="x³" Grid.Column="0" Grid.Row="0" Style="{StaticResource FuncBtnStyle}" Click="Yto3_Click"/>
+            <Button x:Name="Yto4" Content="x⁴" Grid.Column="1" Grid.Row="0" Style="{StaticResource FuncBtnStyle}" Click="Yto4_Click"/>
+            <Button x:Name="Yto5" Content="x⁵" Grid.Column="2" Grid.Row="0" Style="{StaticResource FuncBtnStyle}" Click="Yto5_Click"/>
+            <Button x:Name="Yton" Content="xⁿ" Grid.Column="3" Grid.Row="0" Style="{StaticResource FuncBtnStyle}" Click="Yton_Click"/>
+
+            <Button x:Name="Inverse" Content="1/x" Grid.Column="0" Grid.Row="1" Style="{StaticResource FuncBtnStyle}" Click="Inverse_Click"/>
+            <Button x:Name="Sqrt" Content="√x" Grid.Column="0" Grid.Row="2" Style="{StaticResource FuncBtnStyle}" Click="Sqrt_Click"/>
+            <Button x:Name="Texto3" Content="10³" Grid.Column="1" Grid.Row="1" Style="{StaticResource FuncBtnStyle}" Click="Texto3_Click"/>
+            <Button x:Name="Tentom3" Content="10⁻³" Grid.Column="2" Grid.Row="1" Style="{StaticResource FuncBtnStyle}" Click="Tentom3_Click"/>
+            <Button x:Name="Ln" Content="ln" Grid.Column="0" Grid.Row="3" Style="{StaticResource FuncBtnStyle}" Click="Ln_Click"/>
+            <Button x:Name="Log" Content="log₁₀" Grid.Column="1" Grid.Row="3" Style="{StaticResource FuncBtnStyle}" Click="Log_Click"/>
+            <Button x:Name="Loga" Content="logₐ" Grid.Column="2" Grid.Row="3" Style="{StaticResource FuncBtnStyle}" Click="Loga_Click"/>
+            <Button x:Name="Roots" Content="root" Grid.Column="1" Grid.Row="2" Style="{StaticResource FuncBtnStyle}" Click="Cubroot_Click"/>
+            <Button x:Name="Rounds" Content="round" Grid.Column="2" Grid.Row="2" Style="{StaticResource FuncBtnStyle}" Click="Foroot_Click"/>
+            <Button x:Name="Exp" Content="exp" Grid.Column="3" Grid.Row="3" Style="{StaticResource FuncBtnStyle}" Click="Exp_Click"/>
+            <Button x:Name="Tentox" Content="10ˣ" Grid.Column="3" Grid.Row="1" Style="{StaticResource FuncBtnStyle}" Click="Tentox_Click"/>
+            <Button x:Name="Etox" Content="eˣ" Grid.Column="3" Grid.Row="2" Style="{StaticResource FuncBtnStyle}" Click="Etox_Click"/>
+
+            <Button x:Name="Sin" Content="sin" Grid.Column="0" Grid.Row="4" Style="{StaticResource FuncBtnStyle}" Click="Sin_Click"/>
+            <Button x:Name="Cos" Content="cos" Grid.Column="1" Grid.Row="4" Style="{StaticResource FuncBtnStyle}" Click="Cos_Click"/>
+            <Button x:Name="Tan" Content="tan" Grid.Column="2" Grid.Row="4" Style="{StaticResource FuncBtnStyle}" Click="Tan_Click"/>
+            <Button x:Name="Cot" Content="cot" Grid.Column="3" Grid.Row="4" Style="{StaticResource FuncBtnStyle}" Click="Cot_Click"/>
+            <Button x:Name="Asin" Content="sin⁻¹" Grid.Column="0" Grid.Row="5" Style="{StaticResource FuncBtnStyle}" Click="Asin_Click"/>
+            <Button x:Name="Acos" Content="cos⁻¹" Grid.Column="1" Grid.Row="5" Style="{StaticResource FuncBtnStyle}" Click="Acos_Click"/>
+            <Button x:Name="Atan" Content="tan⁻¹" Grid.Column="2" Grid.Row="5" Style="{StaticResource FuncBtnStyle}" Click="Atan_Click"/>
+
+            <Button x:Name="More" Content="⇩" FontWeight="ExtraBold" ToolTip="Load more" Grid.Column="3" Grid.Row="5" Style="{StaticResource MscBtnStyle}" Click="More_Click"/>
+        </Grid>
+
+        <!--Second function buttons grid-->
+
+        <Grid x:Name="FuncBtn2" Height="240" Width="200" Margin="332,219,10,10"
+              Visibility="Hidden">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="I" Content="i" Grid.Column="0" Grid.Row="0" Style="{StaticResource FuncBtnStyle}" Click="I_Click"/>
+            <Button x:Name="Conj" Content="conj" ToolTip="Conjugate" Grid.Column="1" Grid.Row="0" Style="{StaticResource FuncBtnStyle}" Click="Conj_Click"/>
+            <Button x:Name="Recp" Content="rec" ToolTip="Reciprocal" Grid.Column="2" Grid.Row="0" Style="{StaticResource FuncBtnStyle}" Click="Recp_Click"/>
+            <Button x:Name="Phase" Content="phase" ToolTip="Phase" Grid.Column="3" Grid.Row="0" Style="{StaticResource FuncBtnStyle}" Click="Phase_Click"/>
+
+            <Button x:Name="Real" Content="re" ToolTip="Real Part" Grid.Column="0" Grid.Row="1" Style="{StaticResource FuncBtnStyle}" Click="Real_Click"/>
+            <Button x:Name="Im" Content="im" ToolTip="Imaginary Part" Grid.Column="2" Grid.Row="1" Style="{StaticResource FuncBtnStyle}" Click="Im_Click"/>
+            <Button x:Name="Abs" Content="abs" ToolTip="Absolute" Grid.Column="1" Grid.Row="1" Style="{StaticResource FuncBtnStyle}" Click="Abs_Click"/>
+            <Button x:Name="Ceil" Content="ceil" Grid.Column="3" Grid.Row="1" Style="{StaticResource FuncBtnStyle}" Click="Ceil_Click"/>
+            <Button x:Name="Deriv" Content="deriv" Grid.Column="0" Grid.Row="2" Style="{StaticResource FuncBtnStyle}" Click="Deriv_Click"/>
+            <Button x:Name="Floor" Content="floor" Grid.Column="1" Grid.Row="2" Style="{StaticResource FuncBtnStyle}" Click="Floor_Click"/>
+            <Button x:Name="GCD" Content="GCD" Grid.Column="2" Grid.Row="2" Style="{StaticResource FuncBtnStyle}" Click="GCD_Click"/>
+            <Button x:Name="LCM" Content="LCM" Grid.Column="3" Grid.Row="2" Style="{StaticResource FuncBtnStyle}" Click="LCM_Click"/>
+            <Button x:Name="LB" Content="lb" Grid.Column="0" Grid.Row="3" Style="{StaticResource FuncBtnStyle}" Click="LB_Click"/>
+            <Button x:Name="LG" Content="lg" Grid.Column="1" Grid.Row="3" Style="{StaticResource FuncBtnStyle}" Click="LG_Click"/>
+            <Button x:Name="Del" Content="del" Grid.Column="2" Grid.Row="3" Style="{StaticResource FuncBtnStyle}" Click="Del_Click"/>
+            <Button x:Name="Simplify" Content="simp" Grid.Column="3" Grid.Row="3" Style="{StaticResource FuncBtnStyle}" Click="Simplify_Click_1" />
+            <Button x:Name="Sum" Content="∑" Grid.Column="3" Grid.Row="4" Style="{StaticResource FuncBtnStyle}" Click="Round_Click"/>
+            <Button x:Name="Sec" Content="sec" Grid.Column="0" Grid.Row="5" Style="{StaticResource FuncBtnStyle}" Click="Sec_Click"/>
+            <Button x:Name="Cosec" Content="csc" Grid.Column="1" Grid.Row="5" Style="{StaticResource FuncBtnStyle}" Click="Cosec_Click"/>
+            <Button x:Name="Secinv" Content="sec⁻¹" Grid.Column="0" Grid.Row="4" Style="{StaticResource FuncBtnStyle}" Click="Secinv_Click"/>
+            <Button x:Name="Cscinv" Content="csc⁻¹" Grid.Column="1" Grid.Row="4" Style="{StaticResource FuncBtnStyle}" Click="Cscinv_Click"/>
+            <Button x:Name="Acot" Content="cot⁻¹" Grid.Column="2" Grid.Row="4" Style="{StaticResource FuncBtnStyle}" Click="Acot_Click"/>
+            <Button x:Name="Cosh" Content="cosh" Grid.Column="2" Grid.Row="5" Style="{StaticResource FuncBtnStyle}" Click="Cosh_Click"/>
+
+            <Button x:Name="More2" Content="⇩" FontWeight="ExtraBold" ToolTip="Load more" Grid.Column="3" Grid.Row="5" Style="{StaticResource MscBtnStyle}" Click="More2_Click"/>
+        </Grid>
+
+        <!--Third function buttons-->
+
+        <Grid x:Name="FuncBtn3" Height="240" Width="200" Margin="332,219,10,10"
+              Visibility="Hidden">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="Sinh" Content="sinh" Grid.Column="0" Grid.Row="0" Style="{StaticResource FuncBtnStyle}" Click="Sinh_Click"/>
+            <Button x:Name="Tanh" Content="tanh" Grid.Column="1" Grid.Row="0" Style="{StaticResource FuncBtnStyle}" Click="Tanh_Click"/>
+            <Button x:Name="Sech" Content="sech" Grid.Column="2" Grid.Row="0" Style="{StaticResource FuncBtnStyle}" Click="Sech_Click"/>
+            <Button x:Name="Coth" Content="coth" Grid.Column="3" Grid.Row="0" Style="{StaticResource FuncBtnStyle}" Click="Coth_Click"/>
+            <Button x:Name="Asinh" Content="arsh" ToolTip="Arcsinh" Grid.Column="0" Grid.Row="1" Style="{StaticResource FuncBtnStyle}" Click="Asinh_Click"/>
+            <Button x:Name="Acosh" Content="arch" ToolTip="Arccosh" Grid.Column="0" Grid.Row="2" Style="{StaticResource FuncBtnStyle}" Click="Acosh_Click"/>
+            <Button x:Name="Asech" Content="arsch" ToolTip="Arcsech" Grid.Column="2" Grid.Row="1" Style="{StaticResource FuncBtnStyle}" Click="Asech_Click"/>
+            <Button x:Name="Acoth" Content="arcth" ToolTip="Arccotanh" Grid.Column="3" Grid.Row="1" Style="{StaticResource FuncBtnStyle}" Click="Acoth_Click"/>
+            <Button x:Name="Atanh" Content="arth" ToolTip="Arctanh" Grid.Column="1" Grid.Row="1" Style="{StaticResource FuncBtnStyle}" Click="Atanh_Click"/>
+            <Button x:Name="ACsch" Content="arcsch" ToolTip="Arccosech" Grid.Column="2" Grid.Row="2" Style="{StaticResource FuncBtnStyle}" Click="ACsch_Click"/>
+            <Button x:Name="Csch" Content="csch" Grid.Column="1" Grid.Row="2" Style="{StaticResource FuncBtnStyle}" Click="Csch_Click"/>
+
+            <Button x:Name="Avg" Content="avg" Grid.Column="3" Grid.Row="2" ToolTip="Average" Style="{StaticResource FuncBtnStyle}" Click="Avg_Click"/>
+            <Button x:Name="Count" Content="count" Grid.Column="0" Grid.Row="3" Style="{StaticResource FuncBtnStyle}" Click="Count_Click"/>
+            <Button x:Name="Max" Content="max" Grid.Column="1" Grid.Row="3" Style="{StaticResource FuncBtnStyle}" Click="Max_Click"/>
+            <Button x:Name="Min" Content="min" Grid.Column="2" Grid.Row="3" Style="{StaticResource FuncBtnStyle}" Click="Min_Click"/>
+            <Button x:Name="Product" Content="prod" Grid.Column="3" Grid.Row="3" ToolTip="Product" Style="{StaticResource FuncBtnStyle}" Click="Product_Click"/>
+            <Button x:Name="Std" Content="stdev" Grid.Column="0" Grid.Row="4" ToolTip="Standard deviation" Style="{StaticResource FuncBtnStyle}" Click="Std_Click"/>
+            <Button x:Name="Stdp" Content="stdevp" Grid.Column="1" Grid.Row="4" Style="{StaticResource FuncBtnStyle}" Click="Stdp_Click"/>
+            <Button x:Name="Var" Content="var" Grid.Column="2" Grid.Row="4" ToolTip="Variance" Style="{StaticResource FuncBtnStyle}" Click="Var_Click"/>
+            <Button x:Name="Varp" Content="varp" Grid.Column="3" Grid.Row="4" Style="{StaticResource FuncBtnStyle}" Click="Varp_Click"/>
+            <Button x:Name="Transpose" Content="trans" ToolTip="Transpose" Grid.Column="0" Grid.Row="5" Style="{StaticResource FuncBtnStyle}" Click="Transpose_Click"/>
+            <Button x:Name="Determinant" Content="det" ToolTip="Determinant" Grid.Column="1" Grid.Row="5" Style="{StaticResource FuncBtnStyle}" Click="Determinant_Click" />
+            <Button x:Name="Inversemat" Content="inv" Grid.Column="2" Grid.Row="5" Style="{StaticResource FuncBtnStyle}" Click="Inversemat_Click" />
+            <Button x:Name="More3" Content="⇩" FontWeight="ExtraBold" ToolTip="Load more" Grid.Column="3" Grid.Row="5" Style="{StaticResource MscBtnStyle}" Click="More3_Click"/>
+        </Grid>
+
+        <!--Fourth functions butoons-->
+
+        <Grid x:Name="FuncBtn4" Height="240" Width="200" Margin="332,219,10,10"
+              Visibility="Hidden">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="Lbr" Content=" {" Grid.Column="0" Grid.Row="5" Style="{StaticResource FuncBtnStyle}" Click="Lbr_Click" />
+            <Button x:Name="Rbr" Content="}" Grid.Column="1" Grid.Row="5" Style="{StaticResource FuncBtnStyle}" Click="Rbr_Click" />
+            <Button x:Name="Comma" Content="," Grid.Column="2" Grid.Row="5" Style="{StaticResource FuncBtnStyle}" Click="Comma_Click"/>
+
+            <Button x:Name="More4" Content="⇩" FontWeight="ExtraBold" ToolTip="Load more" Grid.Column="3" Grid.Row="5" Style="{StaticResource MscBtnStyle}" Click="More4_Click" />
+        </Grid>
+
+
+        <!--Menus controls-->
+        <Menu Height="25" Margin="10,0,10,444" Style="{StaticResource MenuStyle}" >
+            <MenuItem Header="File" Style="{StaticResource MenuItemStyle}">
+                <MenuItem x:Name="NewItem" Header="New" Style="{StaticResource MenuItemStyle}" Click="NewItem_Click"/>
+                <MenuItem x:Name="SaveItem" Header="Save" Style="{StaticResource MenuItemStyle}"  Click="SaveItem_Click"/>
+                <MenuItem x:Name="SaveasItem" Header="Save as" Style="{StaticResource MenuItemStyle}"  Click="SaveasItem_Click"/>
+                <MenuItem x:Name="CloseItem" Header="Close" Style="{StaticResource MenuItemStyle}"  Click="CloseItem_Click"/>
+                <MenuItem x:Name="ExitItem" Header="Exit" Style="{StaticResource MenuItemStyle}"  Click="ExitItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="Edit" Style="{StaticResource MenuItemStyle}" >
+                <MenuItem x:Name="CutItem" Header="Cut"  Style="{StaticResource MenuItemStyle}" Click="CutItem_Click"/>
+                <MenuItem x:Name="CopyItem" Header="Copy"  Style="{StaticResource MenuItemStyle}" Click="CopyItem_Click"/>
+                <MenuItem x:Name="PasteItem" Header="Paste"  Style="{StaticResource MenuItemStyle}" Click="PasteItem_Click"/>
+                <MenuItem x:Name="ClrmemItem" Header="Clear Memory"  Style="{StaticResource MenuItemStyle}" Click="ClrmemItem_Click"/>
+                <MenuItem x:Name="ClrHisItem" Header="Clear History"  Style="{StaticResource MenuItemStyle}" Click="ClrHisItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="View" Style="{StaticResource MenuItemStyle}">
+                <MenuItem x:Name="ConstItem" Header="Constants" Style="{StaticResource MenuItemStyle}">
+                  
+                </MenuItem>
+                <MenuItem x:Name="FormItem" Header="Formulas" Style="{StaticResource MenuItemStyle}">
+                   
+                </MenuItem>
+                <MenuItem x:Name="MemoItem" Header="Memory" Style="{StaticResource MenuItemStyle}" Click="MemoItem_Click"/>
+                <MenuItem x:Name="HistItem" Header="History" Style="{StaticResource MenuItemStyle}" Icon="&#xE81C;" FontFamily="Segoe MDL2 Assets" Click="HistItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="Tools" Style="{StaticResource MenuItemStyle}">
+                <MenuItem x:Name="StdItem" Header="Standard" Style="{StaticResource MenuItemStyle}" Click="StdItem_Click"/>
+                <MenuItem x:Name="ConvItem" Header="Converter" Style="{StaticResource MenuItemStyle}" Click="ConvItem_Click"/>
+                <MenuItem x:Name="DigItem" Header="Digital" Style="{StaticResource MenuItemStyle}" Click="DigItem_Click"/>
+                <MenuItem x:Name="DateItem" Header="Date-Time" Style="{StaticResource MenuItemStyle}" Click="DateItem_Click"/>
+                <MenuItem x:Name="CharItem" Header="Colors" Style="{StaticResource MenuItemStyle}" Click="CharItem_Click"/>
+                <MenuItem x:Name="ConstFormItem" Header="Consts-Formulas" Style="{StaticResource MenuItemStyle}" Click="ConstFormItem_Click"/>
+                <MenuItem x:Name="SettingItem" Header="Settings" Style="{StaticResource MenuItemStyle}" Click="SettingItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="Help" Style="{StaticResource MenuItemStyle}" >
+                <MenuItem x:Name="UserguideItem" Header="Userguides" Style="{StaticResource MenuItemStyle}" Click="UserguideItem_Click"/>
+                <MenuItem x:Name="AboutItem" Header="About" Style="{StaticResource MenuItemStyle}" Click="AboutItem_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <!--Options controls-->
+        <Button x:Name="OpBtn" Content="≡" Style="{StaticResource MscBtnStyle}" Margin="10,60,532,395" Click="OpBtn_Click"/>
+        <Label x:Name="OpLabel" Content="Scientific" Style="{StaticResource LabelStyle}"
+               Height="30" Margin="40,64,244,395"/>
+
+
+        <!--result text box-->
+
+        <TextBox x:Name="ResultTb" Style="{StaticResource TextboxStyle}" Margin="198,60,62,372"
+                 Visibility="Visible" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
+
+        <!--Op list view-->
+
+        <ListView x:Name="OpLv" Style="{StaticResource ListViewStyle}" Margin="40,94,340,230" Visibility="Hidden" IsVisibleChanged="OpLv_IsVisibleChanged" SelectionChanged="OpLv_SelectionChanged">
+            <ListViewItem Content="Standard" Style="{StaticResource ListViewItemStyle}"/>
+            <ListViewItem Content="Digital" Style="{StaticResource ListViewItemStyle}"/>
+            <ListViewItem Content="Converter" Style="{StaticResource ListViewItemStyle}"/>
+            <ListViewItem Content="Date and Time" Style="{StaticResource ListViewItemStyle}"/>
+            <ListViewItem Content="Colors" Style="{StaticResource ListViewItemStyle}"/>
+            <ListViewItem Content="Const-Formulas" Style="{StaticResource ListViewItemStyle}"/>
+        </ListView>
+
+        <!--Memory area-->
+        <ListBox x:Name="MemoryArea" Style="{StaticResource MemoStyle}" Margin="10,270,232,10"
+                 Visibility="Hidden" IsVisibleChanged="MemoryArea_IsVisibleChanged" SelectionChanged="MemoryArea_SelectionChanged"/>
+
+        <!--History controls-->
+        <Button x:Name="HisvBtn" Content="&#xE81C;" Style="{StaticResource MscBtnStyle}" Margin="515,60,25,399" FontFamily="Segoe MDL2 Assets" Click="HisvBtn_Click"/>
+
+
+        <RichTextBox x:Name="HistArea" Style="{StaticResource HistStyle}" Margin="10,79,10,10" Visibility="Hidden" IsVisibleChanged="HistArea_IsVisibleChanged"/>
+
+        <Button x:Name="HistClear" Content="&#xE107;" Style="{StaticResource MscBtnStyle}" FontFamily="Segoe MDL2 Assets"
+                Height="30" Width="25" Margin="505,420,12,19" Visibility="Collapsed" Click="HistClear_Click"/>
+        <Button x:Name="HistSave" Content="&#xE74E;" Style="{StaticResource MscBtnStyle}" FontFamily="Segoe MDL2 Assets"
+                Height="30" Width="25" Margin="505,385,12,54" Visibility="Collapsed" Click="HistSave_Click"/>
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,544 @@
+﻿<Window x:Class="Calckit.GUIs.DigitalWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calckit.GUIs"
+        mc:Ignorable="d"
+        Title="Digital-Calckit" Height="650" Width="600" MaxHeight="650" MaxWidth="600" MinHeight="650" MinWidth="600" Style="{StaticResource WindowStyle}" Loaded="Window_Loaded" KeyDown="Window_KeyDown" 
+        WindowStartupLocation="CenterOwner" Closing="Window_Closing">
+    <Grid>
+
+        <TextBox x:Name="BittogInputBox" Visibility="Hidden" TextChanged="BittogInputBox_TextChanged"/>
+        <!--Menus area-->
+
+        <Menu Height="30" Style="{StaticResource MenuStyle}" Margin="10,10,10,579">
+            <MenuItem x:Name="FileMenu" Header="File" Style="{StaticResource MenuItemStyle}">
+                <MenuItem x:Name="NewItem" Header="New" Style="{StaticResource MenuItemStyle}" Click="NewItem_Click"/>
+                <MenuItem x:Name="SaveItem" Header="Save" Style="{StaticResource MenuItemStyle}" Click="SaveItem_Click"/>
+                <MenuItem x:Name="SaveasItem" Header="Save as" Style="{StaticResource MenuItemStyle}" Click="SaveasItem_Click"/>
+                <MenuItem x:Name="CloseItem" Header="Close" Style="{StaticResource MenuItemStyle}" Click="CloseItem_Click"/>
+                <MenuItem x:Name="ExitItem" Header="Exit" Style="{StaticResource MenuItemStyle}" Click="ExitItem_Click"/>
+            </MenuItem>
+            <MenuItem x:Name="EditMenu" Header="Edit" Style="{StaticResource MenuItemStyle}">
+                <MenuItem x:Name="CutItem" Header="Cut      ctrl+x" Style="{StaticResource MenuItemStyle}" Click="CutItem_Click"/>
+                <MenuItem x:Name="CopyItem" Header="Copy    ctrl+c" Style="{StaticResource MenuItemStyle}" Click="CopyItem_Click"/>
+                <MenuItem x:Name="PasteItem" Header="Paste  ctrl+v" Style="{StaticResource MenuItemStyle}" Click="PasteItem_Click"/>
+                <MenuItem x:Name="ClMemItem" Header="Clear Memory" Style="{StaticResource MenuItemStyle}" Click="ClMemItem_Click"/>
+                <MenuItem x:Name="ClHistItem" Header="Clear History" Style="{StaticResource MenuItemStyle}" Click="ClHistItem_Click"/>
+            </MenuItem>
+            <MenuItem x:Name="ToolsMenu" Header="Tools" Style="{StaticResource MenuItemStyle}">
+                <MenuItem x:Name="STDItem" Header="Standard-Calculator" Style="{StaticResource MenuItemStyle}" Click="STDItem_Click"/>
+                <MenuItem x:Name="ScientItem" Header="Scientific-Calculator" Style="{StaticResource MenuItemStyle}" Click="ScientItem_Click"/>
+                <MenuItem x:Name="ConstFormItem" Header="Constants and Formulas" Style="{StaticResource MenuItemStyle}" Click="ConstFormItem_Click"/>
+                <MenuItem x:Name="SettingsItem" Header="Settings" Style="{StaticResource MenuItemStyle}" Click="SettingsItem_Click"/>
+            </MenuItem>
+            <MenuItem x:Name="ViewMenu" Header="View" Style="{StaticResource MenuItemStyle}">
+                <MenuItem x:Name="ConstFormualItem" Header="Constants and Formulas" Style="{StaticResource MenuItemStyle}" Click="ConstFormualItem_Click"/>
+                <MenuItem x:Name="MemoryItem" Header="Memory" Style="{StaticResource MenuItemStyle}" Click="MemoryItem_Click"/>
+                <MenuItem x:Name="HistItem" Header="History" Style="{StaticResource MenuItemStyle}" Click="HistItem_Click"/>
+            </MenuItem>
+            <MenuItem x:Name="HelpMenu" Header="Help" Style="{StaticResource MenuItemStyle}">
+                <MenuItem x:Name="UserManualItem" Header="User-Guides" Style="{StaticResource MenuItemStyle}" Click="UserManualItem_Click"/>
+                <MenuItem x:Name="AboutItem" Header="About" Style="{StaticResource MenuItemStyle}" Click="AboutItem_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <Button x:Name="OptionBtn" Content="≡" FontSize="25" Style="{StaticResource MscBtnStyle}" Margin="24,45,530,529" Click="OptionBtn_Click"/>
+        <Button x:Name="HistBtn" Content="&#xE81C;"  FontFamily="Segoe MDL2 Assets" Style="{StaticResource MscBtnStyle}" Margin="530,45,15,529" Click="HistBtn_Click"/>
+        <Label x:Name="OpLabel" Style="{StaticResource LabelStyle}" Margin="69,55,215,519"/>
+
+        <!--Coommon input boxes grid-->
+        <Grid x:Name="CommonBoxGrid" Visibility="Visible" Height="220" Margin="10,90,10,309">
+            <TextBox x:Name="CommonInputBox" Style="{StaticResource TextboxStyle}" HorizontalScrollBarVisibility="Auto"
+                    VerticalScrollBarVisibility="Auto" Margin="0,5,0,159" MouseDown="CommonInputBox_MouseDown" GotFocus="CommonInputBox_GotFocus"/>
+            <TextBox x:Name="CommonResultBox" IsReadOnly="True" Style="{StaticResource TextboxStyle}" HorizontalScrollBarVisibility="Auto"
+                    VerticalScrollBarVisibility="Auto" Margin="0,66,0,115"/>
+            <ListView x:Name="InputOpLv" Style="{StaticResource ListViewStyle}" Margin="0,105,0,10" SelectionChanged="InputOpLv_SelectionChanged">
+                <ListViewItem Content="HEX" x:Name="HEXItem" Style="{StaticResource ListViewItemStyle}"/>
+                <ListViewItem Content="OCT" x:Name="OCTItem" Style="{StaticResource ListViewItemStyle}"/>
+                <ListViewItem Content="DEC" x:Name="DECItem" Style="{StaticResource ListViewItemStyle}"/>
+                <ListViewItem Content="BIN" x:Name="BINItem" Style="{StaticResource ListViewItemStyle}"/>
+            </ListView>
+
+        </Grid>
+
+        <!--Common buttons-->
+        <Grid x:Name="CommonBtnGrid" Visibility="Visible" Margin="6,317,282,16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Grid Visibility="Visible" Grid.ColumnSpan="6" Grid.Row="2" Grid.RowSpan="5" x:Name="BasicBtnGrid" Margin="0,0,0,0">
+
+                <Button x:Name="LeftBrBtn" Content="(" Grid.Column="0" Style="{StaticResource NumBtnStyle}" Click="LeftBrBtn_Click" Margin="0,160,250,0"/>
+                <Button x:Name="RightBrBtn" Content=")" Style="{StaticResource NumBtnStyle}" Click="RightBrBtn_Click" Margin="50,160,200,0"/>
+                <Button x:Name="PlMinusBtn" Content="±" Style="{StaticResource NumBtnStyle}" Click="PlMinusBtn_Click" Margin="100,160,150,0"/>
+                <Button x:Name="ZeroComBtn" Content="0" Style="{StaticResource NumBtnStyle}" Click="ZeroComBtn_Click" Margin="150,160,100,0"/>
+                <Button x:Name="PointComBtn" Content="." Style="{StaticResource NumBtnStyle}" Click="PointComBtn_Click" Margin="200,160,50,0"/>
+                <Button x:Name="EqualComBtn" Content="=" Style="{StaticResource NumBtnStyle}" Margin="250,160,0,0" Click="EqualComBtn_Click"/>
+
+                <Button x:Name="EComBtn" Content="E" Grid.Column="0" Style="{StaticResource NumBtnStyle}" Click="EComBtn_Click" Margin="0,120,250,40"/>
+                <Button x:Name="FComBtn" Content="F" Style="{StaticResource NumBtnStyle}" Click="FComBtn_Click" Margin="50,120,200,40"/>
+                <Button x:Name="OneComBtn" Content="1" Style="{StaticResource NumBtnStyle}" Click="OneComBtn_Click" Margin="100,120,150,40"/>
+                <Button x:Name="TwoComBtn" Content="2" Style="{StaticResource NumBtnStyle}" Click="TwoComBtn_Click" Margin="150,120,100,40"/>
+                <Button x:Name="ThreeComBtn" Content="3" Style="{StaticResource NumBtnStyle}" Click="ThreeComBtn_Click" Margin="200,120,50,40"/>
+                <Button x:Name="PlusComBtn" Content="+" Style="{StaticResource NumBtnStyle}" Click="PlusComBtn_Click" Margin="250,120,0,40"/>
+
+                <Button x:Name="CComBtn" Content="C" Grid.Column="0" Style="{StaticResource NumBtnStyle}" Click="CComBtn_Click" Margin="0,80,250,80"/>
+                <Button x:Name="DComBtn" Content="D" Style="{StaticResource NumBtnStyle}" Click="DComBtn_Click" Margin="50,80,200,80"/>
+                <Button x:Name="FourComBtn" Content="4" Style="{StaticResource NumBtnStyle}" Click="FourComBtn_Click" Margin="100,80,150,80"/>
+                <Button x:Name="FiveComBtn" Content="5" Style="{StaticResource NumBtnStyle}" Click="FiveComBtn_Click" Margin="150,80,100,80"/>
+                <Button x:Name="SixComBtn" Content="6" Style="{StaticResource NumBtnStyle}" Click="SixComBtn_Click" Margin="200,80,50,80"/>
+                <Button x:Name="MinusComBtn" Content="-" Style="{StaticResource NumBtnStyle}" Click="MinusComBtn_Click" Margin="250,80,0,80"/>
+
+                <Button x:Name="AComBtn" Content="A" Grid.Column="0" Style="{StaticResource NumBtnStyle}" Click="AComBtn_Click" Margin="0,40,250,120"/>
+                <Button x:Name="BComBtn" Content="B" Style="{StaticResource NumBtnStyle}" Click="BComBtn_Click" Margin="50,40,200,120"/>
+                <Button x:Name="SevenComBtn" Content="7" Style="{StaticResource NumBtnStyle}" Click="SevenComBtn_Click" Margin="100,40,150,120"/>
+                <Button x:Name="EightComBtn" Content="8" Style="{StaticResource NumBtnStyle}" Click="EightComBtn_Click" Margin="150,40,100,120"/>
+                <Button x:Name="NineComBtn" Content="9" Style="{StaticResource NumBtnStyle}" Click="NineComBtn_Click" Margin="200,40,50,120"/>
+                <Button x:Name="TimesComBtn" Content="*" Style="{StaticResource NumBtnStyle}" Click="TimesComBtn_Click" Margin="250,40,0,120"/>
+
+                <Button x:Name="ArrowComBtn" Content="↑" ToolTip="Other Functions" Grid.Column="0" Style="{StaticResource MscBtnStyle}" Click="ArrowComBtn_Click" Margin="0,0,250,160"/>
+                <Button x:Name="ModComBtn" Content="%" Style="{StaticResource NumBtnStyle}" Click="ModComBtn_Click" Margin="50,0,200,160"/>
+                <Button x:Name="DivideComBtn" Content="÷" Style="{StaticResource NumBtnStyle}" Click="DivideComBtn_Click" Margin="250,0,0,160"/>
+
+            </Grid>
+            <Button x:Name="CEComBtn" Content="CE" Grid.Column="2" Grid.Row="2" Style="{StaticResource CtrlBtnStyle}" Click="CEComBtn_Click"/>
+            <Button x:Name="ClComBtn" Content="C" Grid.Column="3" Grid.Row="2" Style="{StaticResource CtrlBtnStyle}" Click="ClComBtn_Click"/>
+            <Button x:Name="DelComBtn" Content="&#xE94F;" Grid.Column="4" Grid.Row="2" FontFamily="Segoe MDL2 Assets" Style="{StaticResource CtrlBtnStyle}" Click="DelComBtn_Click"/>
+
+            <Button x:Name="FullKBComBtn" Content="&#xE75F;" Grid.Column="0" FontFamily="Segoe MDL2 Assets" Grid.Row="0" Style="{StaticResource CtrlBtnStyle}" Click="FullKBComBtn_Click"/>
+            <Button x:Name="BitKBComBtn" Content="&#xE75F;" Grid.Column="1" FontFamily="Segoe MDL2 Assets" Grid.Row="0" Style="{StaticResource CtrlBtnStyle}" Click="BitKBComBtn_Click"/>
+            <Button x:Name="BitOpComBtn" Content="BYTE" FontSize="12" Grid.Column="2" Foreground="LightBlue"  Grid.Row="0" Style="{StaticResource CtrlBtnStyle}" Click="BitOpComBtn_Click"/>
+            <Button x:Name="MRComBtn" Content="MR" Grid.Column="3"  Grid.Row="0" Style="{StaticResource CtrlBtnStyle}" Click="MRComBtn_Click"/>
+            <Button x:Name="MSComBtn" Content="MS" Grid.Column="4"  Grid.Row="0" Style="{StaticResource CtrlBtnStyle}" Click="MSComBtn_Click"/>
+            <Button x:Name="MvComBtn" Content="M˅" Grid.Column="5"  Grid.Row="0" Style="{StaticResource CtrlBtnStyle}" Click="MvComBtn_Click"/>
+
+            <Grid x:Name="ComFunc1Grid" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="LshBtn" Content="LSH" Grid.Column="0" Style="{StaticResource FuncBtnStyle}" Click="LshBtn_Click"/>
+                <Button x:Name="RshBtn" Content="RSH" Grid.Column="1" Style="{StaticResource FuncBtnStyle}" Click="RshBtn_Click"/>
+                <Button x:Name="XorBtn" Content="XOR" Grid.Column="2" Style="{StaticResource FuncBtnStyle}" Click="XorBtn_Click"/>
+                <Button x:Name="NotBtn" Content="NOT" Grid.Column="3" Style="{StaticResource FuncBtnStyle}" Click="NotBtn_Click"/>
+                <Button x:Name="ORBtn" Content="OR" Grid.Column="4" Style="{StaticResource FuncBtnStyle}" Click="ORBtn_Click"/>
+                <Button x:Name="ANDBtn" Content="AND" Grid.Column="5" Style="{StaticResource FuncBtnStyle}" Click="ANDBtn_Click"/>
+            </Grid>
+
+            <Grid x:Name="ComFunc2Grid" Visibility="Collapsed" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="ROLBtn" Content="RoL" Grid.Column="0" Style="{StaticResource FuncBtnStyle}" Click="ROLBtn_Click"/>
+                <Button x:Name="RoRBtn" Content="RoR" Grid.Column="1" Style="{StaticResource FuncBtnStyle}" Click="RoRBtn_Click"/>
+                <Button x:Name="XnorBtn" Content="XNOR" Grid.Column="2" Style="{StaticResource FuncBtnStyle}" Click="XnorBtn_Click"/>
+                <Button x:Name="EQBtn" Content="==" Grid.Column="3" Style="{StaticResource FuncBtnStyle}" Click="EQBtn_Click"/>
+                <Button x:Name="NORBtn" Content="NOR" Grid.Column="4" Style="{StaticResource FuncBtnStyle}" Click="NORBtn_Click"/>
+                <Button x:Name="NANDBtn" Content="NAND" Grid.Column="5" Style="{StaticResource FuncBtnStyle}" Click="NANDBtn_Click"/>
+            </Grid>
+
+
+            <!--Boolean algebra buttons-->
+            <Grid Visibility="Collapsed" Grid.ColumnSpan="6" Grid.Row="2" Grid.RowSpan="5" x:Name="BolleanBtnGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+
+                </Grid.RowDefinitions>
+
+                <Button x:Name="LbrBtn" Content="(" Grid.Column="0" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="LbrBtn_Click"/>
+                <Button x:Name="RbrBtn" Content=")" Grid.Column="1" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="RbrBtn_Click"/>
+                <Button x:Name="Point" Content="." Grid.Column="2" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="Point_Click"/>
+                <Button x:Name="Camma" Content="'" Grid.Column="3" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="Camma_Click"/>
+                <Button x:Name="Equal" Content="=" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="Equal_Click"/>
+
+                <Button x:Name="Plus" Content="+" Grid.Column="5" Grid.Row="2" Grid.RowSpan="2" Style="{StaticResource NumBtnStyle}" Click="Plus_Click"/>
+                <Button x:Name="BolABtn" Content="A" Grid.Column="0" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="BolABtn_Click"/>
+                <Button x:Name="BolBBtn" Content="B" Grid.Column="1" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="BolBBtn_Click"/>
+                <Button x:Name="BolCBtn" Content="C" Grid.Column="2" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="BolCBtn_Click"/>
+                <Button x:Name="BolDBtn" Content="D" Grid.Column="3" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="BolDBtn_Click"/>
+                <Button x:Name="BolEBtn" Content="E" Grid.Column="4" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="BolEBtn_Click"/>
+                <Button x:Name="BolFBtn" Content="F" Grid.Column="0" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="BolFBtn_Click"/>
+                <Button x:Name="BolVBtn" Content="V" Grid.Column="1" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="BolVBtn_Click"/>
+                <Button x:Name="BolWBtn" Content="W" Grid.Column="2" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="BolWBtn_Click"/>
+                <Button x:Name="BolXBtn" Content="X" Grid.Column="3" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="BolXBtn_Click"/>
+                <Button x:Name="BolYBtn" Content="Y" Grid.Column="4" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="BolYBtn_Click"/>
+                <Button x:Name="BolZBtn" Content="Z" Grid.Column="0" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="BolZBtn_Click"/>
+                <Button x:Name="BolPBtn" Content="P" Grid.Column="1" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="BolPBtn_Click"/>
+                <Button x:Name="BolQBtn" Content="Q" Grid.Column="2" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="BolQBtn_Click"/>
+                <Button x:Name="Bol1Btn" Content="1" Grid.Column="3" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="Bol1Btn_Click"/>
+                <Button x:Name="Bol0Btn" Content="0" Grid.Column="4" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="Bol0Btn_Click"/>
+                <Button x:Name="ArUpBtn" Content="↑" ToolTip="Other Functions" Grid.Column="0" Grid.Row="0" Style="{StaticResource MscBtnStyle}" Click="ArUpBtn_Click"/>
+                <Button x:Name="TruthTBBtn" Content="TB" Grid.Column="5" Grid.Row="0" Grid.RowSpan="2" ToolTip="Generate Truth Table" Style="{StaticResource MscBtnStyle}" Click="TruthTBBtn_Click"/>
+                <Button x:Name="CircuitBtn" Content="Gates" Grid.Column="1" Grid.Row="0" ToolTip="View logic gates with truth table" Style="{StaticResource MscBtnStyle}"/>
+            </Grid>
+
+            <!--Subnetting buttons-->
+
+            <Grid Visibility="Collapsed" Grid.ColumnSpan="6" Grid.Row="2" Grid.RowSpan="5" x:Name="SubnetBtnGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="75"/>
+                    <ColumnDefinition Width="75"/>
+                    <ColumnDefinition Width="75"/>
+                    <ColumnDefinition Width="75"/>
+
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Button x:Name="NetZeroBtn" Content="0" Grid.Column="0" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="NetZeroBtn_Click"/>
+                <Button x:Name="NetPointBtn" Content="." Grid.Column="1" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="NetPointBtn_Click"/>
+                <Button x:Name="NetEqualBtn" Background="#FF2B2626" Content="Subnet" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4" Style="{StaticResource FuncBtnStyle}" Click="NetEqualBtn_Click"/>
+                <Button x:Name="Net1Btn" Content="1" Grid.Column="0" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="Net1Btn_Click"/>
+                <Button x:Name="Net2Btn" Content="2" Grid.Column="1" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="Net2Btn_Click"/>
+                <Button x:Name="Net3Btn" Content="3" Grid.Column="2" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="Net3Btn_Click"/>
+                <Button x:Name="Net4Btn" Content="4" Grid.Column="0" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="Net4Btn_Click"/>
+                <Button x:Name="Net5Btn" Content="5" Grid.Column="1" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="Net5Btn_Click"/>
+                <Button x:Name="Net6Btn" Content="6" Grid.Column="2" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="Net6Btn_Click"/>
+                <Button x:Name="Net7Btn" Content="7" Grid.Column="0" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="Net7Btn_Click"/>
+                <Button x:Name="Net8Btn" Content="8" Grid.Column="1" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="Net8Btn_Click"/>
+                <Button x:Name="Net9Btn" Content="9" Grid.Column="2" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="Net9Btn_Click"/>
+
+                <Button x:Name="NetMyipBtn" Content="MyIP" Grid.Column="3" ToolTip="IP of your device" Grid.Row="1" Style="{StaticResource FuncBtnStyle}" Click="NetMyipBtn_Click" Height="40" VerticalAlignment="Top"/>
+                <Button x:Name="NetNetipBtn" Content="NetIP" Grid.Column="3" Grid.Row="2" ToolTip="IP of your network" Style="{StaticResource FuncBtnStyle}" Click="NetNetipBtn_Click"/>
+                <Button x:Name="NetDetailBtn" Content="Details" Grid.Column="3" ToolTip="Details from subnetting" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="NetDetailBtn_Click"/>
+
+            </Grid>
+
+
+        </Grid>
+
+
+        <!--Binary operation controls-->
+        <Grid x:Name="BinaryBoxGrid" Visibility="Collapsed" Height="220" Margin="10,90,10,309">
+            <TextBox x:Name="BinInput1" Style="{StaticResource TextboxStyle}" Height="40" Margin="0,8,0,172" MouseDown="BinInput1_MouseDown" GotFocus="BinInput1_GotFocus" PreviewTextInput="BinInput1_PreviewTextInput"/>
+            <TextBox x:Name="BinInput2" Style="{StaticResource TextboxStyle}" Height="40" Margin="0,83,0,97" MouseDown="BinInput2_MouseDown" GotFocus="BinInput2_GotFocus" PreviewTextInput="BinInput2_PreviewTextInput"/>
+            <TextBox x:Name="BinResult" IsReadOnly="True" Style="{StaticResource TextboxStyle}" Height="40" Margin="0,158,0,22"/>
+
+            <Label x:Name="OperLabel" Style="{StaticResource LabelStyle}" Height="25" Margin="518,53,10,142"/>
+            <Label x:Name="EqLabel" Content="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{StaticResource LabelStyle}" Margin="518,128,10,62"/>
+
+            <Grid Margin="0,203,89,0">
+
+                <RadioButton x:Name="BCDRadio" Content="BCD"  Style="{StaticResource RadioStyle}" Margin="0,-5,425,5"/>
+                <RadioButton x:Name="Excess3Radio" Content="Excess-3" Style="{StaticResource RadioStyle}" Margin="63,-5,345,5"/>
+                <RadioButton x:Name="Bin" Content="Binary" IsChecked="True" Style="{StaticResource RadioStyle}" Height="20" Margin="143,-5,270,2"/>
+
+            </Grid>
+        </Grid>
+
+
+        <!--Bollean algebra controls-->
+        <Grid x:Name="BolleanBoxGrid" Visibility="Collapsed" Height="220" Margin="10,90,10,309">
+
+            <TextBox x:Name="BoolInput" Style="{StaticResource TextboxStyle}" Height="100" Margin="0,0,0,120"
+                     HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" GotFocus="BoolInput_GotFocus" MouseDown="BoolInput_MouseDown"/>
+            <TextBox x:Name="BoolResultTb" Style="{StaticResource TextboxStyle}" IsReadOnly="True" Height="80" Margin="0,100,0,40"
+                     HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
+
+            <RadioButton x:Name="SimpRadio" Content="Simplify" Style="{StaticResource RadioStyle}" Height="25" Margin="0,195,502,0"/>
+            <RadioButton x:Name="MaxRadio" Content="Maximize" Style="{StaticResource RadioStyle}" Height="25" Margin="70,195,432,0"/>
+            <RadioButton x:Name="ResultRadio" Content="Result" IsChecked="True" Style="{StaticResource RadioStyle}" Height="25" Margin="140,195,362,0"/>
+
+            <Button x:Name="Back" Content="&#xF0D5;"  FontWeight="Bold"  Style="{StaticResource CtrlBtnStyle}"  FontFamily="Segoe MDL2 Assets" Margin="380,190,131,5" RenderTransformOrigin="3.024,0.5" Click="Back_Click"/>
+            <Button x:Name="Forth" Content="&#xF0D6;" FontWeight="Bold"  Style="{StaticResource CtrlBtnStyle}"  FontFamily="Segoe MDL2 Assets" Margin="446,190,70,5" Click="Forth_Click"/>
+
+        </Grid>
+
+        <!--Subneting controls-->
+        <Grid x:Name="SubnetBoxGrid" Visibility="Hidden" Height="220" Margin="10,90,10,309">
+
+            <TextBox x:Name="IpBox" MaxLength="70" Style="{StaticResource TextboxStyle}" Height="60" Margin="0,10,172,150" GotFocus="IpBox_GotFocus" MouseDown="IpBox_MouseDown" PreviewTextInput="IpBox_PreviewTextInput" />
+            <Label Content="/" Style="{StaticResource LabelStyle}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Margin="405,0,137,178"/>
+            <TextBox x:Name="CidrBox" MaxLength="4" Height="60" Style="{StaticResource TextboxStyle}" Margin="435,10,10,150" PreviewTextInput="CidrBox_PreviewTextInput" MouseDown="CidrBox_MouseDown" GotFocus="CidrBox_GotFocus"/>
+            <Label Content="CIDR" Style="{StaticResource LabelStyle}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Margin="485,70,10,115"/>
+            <Label Content="IP-Address" Style="{StaticResource LabelStyle}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Margin="264,75,172,115"/>
+            <Grid Margin="10,75,449,115">
+
+                <RadioButton x:Name="NumberIpRadio" IsChecked="True" Content="DEC" Style="{StaticResource RadioStyle}" Height="30" Margin="0,0,59,0" Checked="NumberIpRadio_Checked"/>
+                <RadioButton x:Name="BinIpRadio" Content="BIN" Style="{StaticResource RadioStyle}" Height="30" Margin="59,0,0,0" Checked="BinIpRadio_Checked"/>
+
+            </Grid>
+
+            <Grid x:Name="SubRes1Grid" Margin="0,110,0,0" Visibility="Hidden">
+                <Label Content="Subnetmask" Style="{StaticResource LabelStyle}" Margin="0,0,462,80"/>
+                <Label Content="No of Subs" Style="{StaticResource LabelStyle}" Margin="177,0,306,80"/>
+                <Label Content="Fist usable" Style="{StaticResource LabelStyle}" Margin="271,0,213,80"/>
+                <Label Content="Last usable" Style="{StaticResource LabelStyle}" Margin="439,0,45,80"/>
+
+                <TextBox x:Name="SubmaskTb" HorizontalContentAlignment="Left" Style="{StaticResource TextboxStyle}" Margin="0,35,388,10"/>
+                <TextBox x:Name="SubmaskTb_Copy" HorizontalContentAlignment="Left" Style="{StaticResource TextboxStyle}" Margin="189,35,306,10"/>
+                <TextBox x:Name="SubmaskTb_Copy1" HorizontalContentAlignment="Left" Style="{StaticResource TextboxStyle}" Margin="271,35,154,10"/>
+                <TextBox x:Name="SubmaskTb_Copy2" HorizontalContentAlignment="Left" Style="{StaticResource TextboxStyle}" Margin="418,35,0,10"/>
+
+            </Grid>
+
+        </Grid>
+
+
+
+        <!--OptonListview-->
+        <ListView x:Name="OptionLv" Visibility="Hidden" Style="{StaticResource ListViewStyle}" Margin="24,85,359,418" SelectionChanged="OptionLv_SelectionChanged">
+            <ListViewItem Content="Basic" IsSelected="True" Style="{StaticResource ListViewItemStyle}"/>
+            <ListViewItem Content="Binary-Arthimetics" Style="{StaticResource ListViewItemStyle}"/>
+            <ListViewItem Content="Bollean-Algebra" Style="{StaticResource ListViewItemStyle}"/>
+            <ListViewItem Content="Subnetting" Style="{StaticResource ListViewItemStyle}"/>
+        </ListView>
+
+        <!--Converter Area-->
+
+        <Border x:Name="ConvBorder" Width="240" BorderBrush="LightGray" BorderThickness="0.5" Margin="327,339,15,24">
+            <Grid Margin="0,0,0,0">
+                <Label Content="Converter" Style="{StaticResource LabelStyle}" Height="30" HorizontalContentAlignment="Center" Margin="0,10,0,215"/>
+                <Grid Margin="30,40,24,185">
+                    <RadioButton x:Name="BinCodesRadio" Style="{StaticResource RadioStyle}" Content="BCs" ToolTip="Binary-Codes" Margin="0,0,135,10" Checked="BinCodesRadio_Checked"/>
+                    <RadioButton x:Name="NumCodesRadio" Style="{StaticResource RadioStyle}" Content="NS" ToolTip="Number-Systems" Margin="55,0,93,10" Checked="NumCodesRadio_Checked"/>
+                    <RadioButton x:Name="UnitsCodesRadio" IsChecked="True" Style="{StaticResource RadioStyle}" Content="Units" ToolTip="Units of Infos" Margin="97,0,25,10" Checked="UnitsCodesRadio_Checked"/>
+                </Grid>
+
+                <TextBox x:Name="FromBox" Style="{StaticResource TextboxStyle}" Margin="0,75,10,131" GotFocus="FromBox_GotFocus" MouseDown="FromBox_MouseDown" PreviewTextInput="FromBox_PreviewTextInput" TextChanged="FromBox_TextChanged"/>
+                <TextBox x:Name="ToBox" IsReadOnly="True" Style="{StaticResource TextboxStyle}" Margin="0,159,10,47" MouseDown="ToBox_MouseDown"/>
+
+                <ComboBox x:Name="FromCombo" Style="{StaticResource ComboStyle}" Height="30" Margin="10,124,10,101" SelectionChanged="FromCombo_SelectionChanged"/>
+                <ComboBox x:Name="ToCombo" Style="{StaticResource ComboStyle}" Height="30" Margin="10,208,10,17" SelectionChanged="ToCombo_SelectionChanged"/>
+
+            </Grid>
+        </Border>
+
+        <!--Subnet result controls border-->
+
+        <Border x:Name="ResultBordernet" Background="#282828" Margin="10,100,10,16" Padding="10"
+                    Visibility="Hidden">
+
+            <Grid Margin="0,0,0,0" >
+                <Label Content="Input IP:" Foreground="White" Opacity="0.6" Margin="0,12,422,430"/>
+                <Label Content="Input CIDR:" Foreground="White" Opacity="0.6" Margin="0,58,422,379"/>
+                <Label Content="Net Address:" Foreground="White" Opacity="0.6" Margin="0,104,422,331"/>
+                <Label Content="Net Mask:" Foreground="White" Opacity="0.6" Margin="0,152,422,285"/>
+                <Label Content="First usable:" Foreground="White" Opacity="0.6" Margin="0,200,422,240"/>
+                <Label Content="Las usable:" Foreground="White" Opacity="0.6" Margin="-5,247,427,190"/>
+                <Label Content="Broadcast:" Foreground="White" Opacity="0.6" Margin="0,383,422,50" />
+                <Label Content="No of Sub:" Foreground="White" Opacity="0.6" Margin="0,293,422,150"/>
+                <Label Content="No of host:" Foreground="White" Opacity="0.6" Margin="0,338,422,100"/>
+
+
+                <TextBox x:Name="Iptb" Style="{StaticResource TextboxStyle}" Height="45" IsReadOnly="True" Margin="108,12,10,426" />
+                <TextBox x:Name="cidtb" Style="{StaticResource TextboxStyle}" Height="45" IsReadOnly="True" Margin="108,56,10,382" />
+                <TextBox x:Name="netad" Style="{StaticResource TextboxStyle}" Height="45" IsReadOnly="True" Margin="108,101,10,337" />
+                <TextBox x:Name="mask" Style="{StaticResource TextboxStyle}" Height="45" IsReadOnly="True" Margin="108,146,10,292" />
+                <TextBox x:Name="fusabtb" Style="{StaticResource TextboxStyle}" Height="45" IsReadOnly="True" Margin="108,198,10,240" />
+                <TextBox x:Name="lusabtb" Style="{StaticResource TextboxStyle}" Height="45" IsReadOnly="True" Margin="108,243,10,195" />
+                <TextBox x:Name="subtb" Style="{StaticResource TextboxStyle}" Height="45" IsReadOnly="True" Margin="108,288,10,150" />
+                <TextBox x:Name="hosttb" Style="{StaticResource TextboxStyle}" IsReadOnly="True" Height="45" Margin="108,333,10,105" />
+                <TextBox x:Name="Broadcastb" IsReadOnly="True" Style="{StaticResource TextboxStyle}" Height="45" Margin="108,378,10,60" />
+
+
+                <Button x:Name="Hideres" Style="{StaticResource MscBtnStyle}"
+                            Content="Hide" Margin="455,428,10,10" Click="Hideres_Click"/>
+
+
+            </Grid>
+
+        </Border>
+
+
+        <!--Bit toggling keyboard-->
+        <Border x:Name="BitKBBorder" Visibility="Collapsed" Width="320" Height="250" Background="#282828" Margin="10,360,260,9">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="7"/>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="7"/>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="7"/>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="5"/>
+                </Grid.RowDefinitions>
+
+                <Button x:Name="B64" Content="0" Grid.Column="1" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="B64_Click"/>
+                <Button x:Name="B63" Content="0" Grid.Column="2" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="B63_Click"/>
+                <Button x:Name="B62" Content="0" Grid.Column="3" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="B62_Click"/>
+                <Button x:Name="B61" Content="0" Grid.Column="4" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="B61_Click"/>
+
+                <Button x:Name="B60" Content="0" Grid.Column="6" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="B60_Click"/>
+                <Button x:Name="B59" Content="0" Grid.Column="7" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="B59_Click"/>
+                <Button x:Name="B58" Content="0" Grid.Column="8" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="B58_Click"/>
+                <Button x:Name="B57" Content="0" Grid.Column="9" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="B57_Click"/>
+
+                <Button x:Name="B56" Content="0" Grid.Column="11" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="B56_Click"/>
+                <Button x:Name="B55" Content="0" Grid.Column="12" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="B55_Click"/>
+                <Button x:Name="B54" Content="0" Grid.Column="13" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="B54_Click"/>
+                <Button x:Name="B53" Content="0" Grid.Column="14" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="B53_Click"/>
+
+                <Button x:Name="B52" Content="0" Grid.Column="16" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="B52_Click"/>
+                <Button x:Name="B51" Content="0" Grid.Column="17" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="B51_Click"/>
+                <Button x:Name="B50" Content="0" Grid.Column="18" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="B50_Click"/>
+                <Button x:Name="B49" Content="0" Grid.Column="19" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="B49_Click"/>
+
+                <Button x:Name="B48" Content="0" Grid.Column="1" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="B48_Click"/>
+                <Button x:Name="B47" Content="0" Grid.Column="2" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="B47_Click"/>
+                <Button x:Name="B46" Content="0" Grid.Column="3" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="B46_Click"/>
+                <Button x:Name="B45" Content="0" Grid.Column="4" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="B45_Click"/>
+
+                <Button x:Name="B44" Content="0" Grid.Column="6" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="B44_Click"/>
+                <Button x:Name="B43" Content="0" Grid.Column="7" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="B43_Click"/>
+                <Button x:Name="B42" Content="0" Grid.Column="8" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="B42_Click"/>
+                <Button x:Name="B41" Content="0" Grid.Column="9" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="B41_Click"/>
+
+                <Button x:Name="B40" Content="0" Grid.Column="11" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="B40_Click"/>
+                <Button x:Name="B39" Content="0" Grid.Column="12" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="B39_Click"/>
+                <Button x:Name="B38" Content="0" Grid.Column="13" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="B38_Click"/>
+                <Button x:Name="B37" Content="0" Grid.Column="14" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="B37_Click"/>
+
+                <Button x:Name="B36" Content="0" Grid.Column="16" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="B36_Click"/>
+                <Button x:Name="B35" Content="0" Grid.Column="17" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="B35_Click"/>
+                <Button x:Name="B34" Content="0" Grid.Column="18" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="B34_Click"/>
+                <Button x:Name="B33" Content="0" Grid.Column="19" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="B33_Click"/>
+
+                <Button x:Name="B32" Content="0" Grid.Column="1" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="B32_Click"/>
+                <Button x:Name="B31" Content="0" Grid.Column="2" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="B31_Click"/>
+                <Button x:Name="B30" Content="0" Grid.Column="3" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="B30_Click"/>
+                <Button x:Name="B29" Content="0" Grid.Column="4" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="B29_Click"/>
+
+                <Button x:Name="B28" Content="0" Grid.Column="6" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="B28_Click"/>
+                <Button x:Name="B27" Content="0" Grid.Column="7" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="B27_Click"/>
+                <Button x:Name="B26" Content="0" Grid.Column="8" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="B26_Click"/>
+                <Button x:Name="B25" Content="0" Grid.Column="9" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="B25_Click"/>
+
+                <Button x:Name="B24" Content="0" Grid.Column="11" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="B24_Click"/>
+                <Button x:Name="B23" Content="0" Grid.Column="12" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="B23_Click"/>
+                <Button x:Name="B22" Content="0" Grid.Column="13" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="B22_Click"/>
+                <Button x:Name="B21" Content="0" Grid.Column="14" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="B21_Click"/>
+
+                <Button x:Name="B20" Content="0" Grid.Column="16" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="B20_Click"/>
+                <Button x:Name="B19" Content="0" Grid.Column="17" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="B19_Click"/>
+                <Button x:Name="B18" Content="0" Grid.Column="18" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="B18_Click"/>
+                <Button x:Name="B17" Content="0" Grid.Column="19" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="B17_Click"/>
+
+                <Button x:Name="B16" Content="0" Grid.Column="1" Grid.Row="7" Style="{StaticResource NumBtnStyle}" Click="B16_Click"/>
+                <Button x:Name="B15" Content="0" Grid.Column="2" Grid.Row="7" Style="{StaticResource NumBtnStyle}" Click="B15_Click"/>
+                <Button x:Name="B14" Content="0" Grid.Column="3" Grid.Row="7" Style="{StaticResource NumBtnStyle}" Click="B14_Click"/>
+                <Button x:Name="B13" Content="0" Grid.Column="4" Grid.Row="7" Style="{StaticResource NumBtnStyle}" Click="B13_Click"/>
+
+                <Button x:Name="B12" Content="0" Grid.Column="6" Grid.Row="7" Style="{StaticResource NumBtnStyle}" Click="B12_Click"/>
+                <Button x:Name="B11" Content="0" Grid.Column="7" Grid.Row="7" Style="{StaticResource NumBtnStyle}" Click="B11_Click"/>
+                <Button x:Name="B10" Content="0" Grid.Column="8" Grid.Row="7" Style="{StaticResource NumBtnStyle}" Click="B10_Click"/>
+                <Button x:Name="B9" Content="0" Grid.Column="9" Grid.Row="7" Style="{StaticResource NumBtnStyle}" Click="B9_Click"/>
+
+                <Button x:Name="B8" Content="0" Grid.Column="11" Grid.Row="7" Style="{StaticResource NumBtnStyle}" Click="B8_Click"/>
+                <Button x:Name="B7" Content="0" Grid.Column="12" Grid.Row="7" Style="{StaticResource NumBtnStyle}" Click="B7_Click"/>
+                <Button x:Name="B6" Content="0" Grid.Column="13" Grid.Row="7" Style="{StaticResource NumBtnStyle}" Click="B6_Click"/>
+                <Button x:Name="B5" Content="0" Grid.Column="14" Grid.Row="7" Style="{StaticResource NumBtnStyle}" Click="B5_Click"/>
+
+                <Button x:Name="B4" Content="0" Grid.Column="16" Grid.Row="7" Style="{StaticResource NumBtnStyle}" Click="B4_Click"/>
+                <Button x:Name="B3" Content="0" Grid.Column="17" Grid.Row="7" Style="{StaticResource NumBtnStyle}" Click="B3_Click"/>
+                <Button x:Name="B2" Content="0" Grid.Column="18" Grid.Row="7" Style="{StaticResource NumBtnStyle}" Click="B2_Click"/>
+                <Button x:Name="B1" Content="0" Grid.Column="19" Grid.Row="7" Style="{StaticResource NumBtnStyle}" Click="B1_Click"/>
+
+                <Label Style="{StaticResource LabelStyle}" Foreground="DarkGray" Content="0" Grid.Column="19" Grid.Row="8"/>
+                <Label Style="{StaticResource LabelStyle}" Foreground="DarkGray" Content="4" Grid.Column="14" Grid.Row="8"/>
+                <Label Style="{StaticResource LabelStyle}" Foreground="DarkGray" Content="8" Grid.Column="9" Grid.Row="8"/>
+                <Label Style="{StaticResource LabelStyle}" Foreground="DarkGray" Content="12" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="8" HorizontalContentAlignment="Right"/>
+                <Label Style="{StaticResource LabelStyle}" Foreground="DarkGray" Content="16" Grid.Column="18" Grid.Row="6" Grid.ColumnSpan="2" HorizontalContentAlignment="Right"/>
+                <Label Style="{StaticResource LabelStyle}" Foreground="DarkGray" Content="20" Grid.Column="13" Grid.Row="6" Grid.ColumnSpan="2" HorizontalContentAlignment="Right"/>
+                <Label Style="{StaticResource LabelStyle}" Foreground="DarkGray" Content="24" Grid.Column="8" Grid.Row="6" Grid.ColumnSpan="2" HorizontalContentAlignment="Right"/>
+                <Label Style="{StaticResource LabelStyle}" Foreground="DarkGray" Content="28" Grid.Column="3" Grid.Row="6" Grid.ColumnSpan="2" HorizontalContentAlignment="Right"/>
+                <Label Style="{StaticResource LabelStyle}" Foreground="DarkGray" Content="32" Grid.Column="18" Grid.Row="4" Grid.ColumnSpan="2" HorizontalContentAlignment="Right"/>
+                <Label Style="{StaticResource LabelStyle}" Foreground="DarkGray" Content="36" Grid.Column="13" Grid.Row="4" Grid.ColumnSpan="2" HorizontalContentAlignment="Right"/>
+                <Label Style="{StaticResource LabelStyle}" Foreground="DarkGray" Content="40" Grid.Column="8" Grid.Row="4" Grid.ColumnSpan="2" HorizontalContentAlignment="Right"/>
+                <Label Style="{StaticResource LabelStyle}" Foreground="DarkGray" Content="44" Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2" HorizontalContentAlignment="Right"/>
+                <Label Style="{StaticResource LabelStyle}" Foreground="DarkGray" Content="48" Grid.Column="18" Grid.Row="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Right"/>
+                <Label Style="{StaticResource LabelStyle}" Foreground="DarkGray" Content="52" Grid.Column="13" Grid.Row="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Right"/>
+                <Label Style="{StaticResource LabelStyle}" Foreground="DarkGray" Content="56" Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Right"/>
+                <Label Style="{StaticResource LabelStyle}" Foreground="DarkGray" Content="60" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Right"/>
+
+            </Grid>
+
+        </Border>
+
+
+        <!--Memory-->
+        <ListBox x:Name="MemoryArea" Style="{StaticResource MemoStyle}" Margin="10,353,282,10" Visibility="Hidden"/>
+
+        <!--History Area-->
+        <RichTextBox x:Name="HistoryArea" Opacity="0.9" Visibility="Hidden" Style="{StaticResource HistStyle}" Margin="10,90,10,10"/>
+
+        <Button x:Name="ClearHistBtn" Visibility="Collapsed" Content=""  FontFamily="Segoe MDL2 Assets" Style="{StaticResource MscBtnStyle}" Margin="540,565,15,16" Click="ClearHistBtn_Click" RenderTransformOrigin="1.35,0.467"/>
+        <Button x:Name="SaveHistBtn" Content="" Visibility="Collapsed"  FontFamily="Segoe MDL2 Assets" Style="{StaticResource MscBtnStyle}" Margin="540,504,15,76" Click="SaveHistBtn_Click"/>
+
+    </Grid>
+</Window>

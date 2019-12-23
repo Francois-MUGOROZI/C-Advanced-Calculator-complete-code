@@ -1,0 +1,265 @@
+﻿<Window x:Class="Calckit.GUIs.DateTimeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calckit.GUIs"
+        mc:Ignorable="d"
+        Title="DateTime-Calckit" Height="450" Width="550" MaxHeight="450" MaxWidth="550" MinHeight="450" MinWidth="550" Style="{StaticResource WindowStyle}"   KeyDown="Window_KeyDown">
+    <Grid>
+
+        <!--Common textboxes grid-->
+        <Grid x:Name="CommonGrid" Height="100" Width="520" Margin="10,0,12,319" Visibility="Visible">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="74"/>
+                <ColumnDefinition Width="74"/>
+                <ColumnDefinition Width="74"/>
+                <ColumnDefinition Width="74"/>
+                <ColumnDefinition Width="74"/>
+                <ColumnDefinition Width="74"/>
+                <ColumnDefinition Width="74"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <!--Labels for textboxes-->
+            <Label Content="SS" Grid.Column="0" Grid.Row="0" Style="{StaticResource LabelStyle}" FontSize="8"/>
+            <Label Content="mm" Grid.Column="1" Grid.Row="0" Style="{StaticResource LabelStyle}" FontSize="8"/>
+            <Label Content="hh" Grid.Column="2" Grid.Row="0" Style="{StaticResource LabelStyle}" FontSize="8"/>
+            <Label Content="dd" Grid.Column="3" Grid.Row="0" Style="{StaticResource LabelStyle}" FontSize="8"/>
+            <Label Content="ww" Grid.Column="4" Grid.Row="0" Style="{StaticResource LabelStyle}" FontSize="8"/>
+            <Label Content="MM" Grid.Column="5" Grid.Row="0" Style="{StaticResource LabelStyle}" FontSize="8"/>
+            <Label Content="yy" Grid.Column="6" Grid.Row="0" Style="{StaticResource LabelStyle}" FontSize="8"/>
+
+
+            <!--Text boxes-->
+            <TextBox x:Name="SSTb" Grid.Column="0" Grid.Row="1" Style="{StaticResource TextboxStyle}" BorderThickness="0.5" HorizontalScrollBarVisibility="Hidden" MouseDown="SSTb_MouseDown" GotFocus="SSTb_GotFocus" PreviewTextInput="SSTb_PreviewTextInput" />
+            <TextBox x:Name="SSTb2" Grid.Column="0" Grid.Row="3" Style="{StaticResource TextboxStyle}" BorderThickness="0.5" HorizontalScrollBarVisibility="Hidden" MouseDown="SSTb2_MouseDown" GotFocus="SSTb2_GotFocus" PreviewTextInput="SSTb2_PreviewTextInput"/>
+            <TextBox x:Name="MmTb" Grid.Column="1" Grid.Row="1" Style="{StaticResource TextboxStyle}" BorderThickness="0.5" HorizontalScrollBarVisibility="Hidden" MouseDown="MmTb_MouseDown" GotFocus="MmTb_GotFocus" PreviewTextInput="MmTb_PreviewTextInput"/>
+            <TextBox x:Name="MmTb2" Grid.Column="1" Grid.Row="3" Style="{StaticResource TextboxStyle}" BorderThickness="0.5" HorizontalScrollBarVisibility="Hidden" MouseDown="MmTb2_MouseDown_1" GotFocus="MmTb2_GotFocus_1" PreviewTextInput="MmTb2_PreviewTextInput_1"/>
+            <TextBox x:Name="HHTb" Grid.Column="2" Grid.Row="1" Style="{StaticResource TextboxStyle}" BorderThickness="0.5" HorizontalScrollBarVisibility="Hidden" MouseDown="HHTb_MouseDown" GotFocus="HHTb_GotFocus" PreviewTextInput="HHTb_PreviewTextInput"/>
+            <TextBox x:Name="HHTb2" Grid.Column="2" Grid.Row="3" Style="{StaticResource TextboxStyle}" BorderThickness="0.5" HorizontalScrollBarVisibility="Hidden" MouseDown="HHTb2_MouseDown" GotFocus="HHTb2_GotFocus" PreviewTextInput="HHTb2_PreviewTextInput"/>
+            <TextBox x:Name="DDTb" Grid.Column="3" Grid.Row="1" Style="{StaticResource TextboxStyle}" BorderThickness="0.5" HorizontalScrollBarVisibility="Hidden" MouseDown="DDTb_MouseDown" GotFocus="DDTb_GotFocus" PreviewTextInput="DDTb_PreviewTextInput"/>
+            <TextBox x:Name="WWTb" Grid.Column="4" Grid.Row="1" Style="{StaticResource TextboxStyle}" BorderThickness="0.5" HorizontalScrollBarVisibility="Hidden" MouseDown="WWTb_MouseDown" GotFocus="WWTb_GotFocus" PreviewTextInput="WWTb_PreviewTextInput"/>
+            <TextBox x:Name="MMTb" Grid.Column="5" Grid.Row="1" Style="{StaticResource TextboxStyle}" BorderThickness="0.5" HorizontalScrollBarVisibility="Hidden" MouseDown="MMTb_MouseDown_1" GotFocus="MMTb_GotFocus_1" PreviewTextInput="MMTb_PreviewTextInput_1"/>
+            <TextBox x:Name="YYTb" Grid.Column="6" Grid.Row="1" Style="{StaticResource TextboxStyle}" BorderThickness="0.5" HorizontalScrollBarVisibility="Hidden" MouseDown="YYTb_MouseDown" GotFocus="YYTb_GotFocus" PreviewTextInput="YYTb_PreviewTextInput" Margin="0,0,10,0"/>
+            <TextBox x:Name="DDTb2" Grid.Column="3" Grid.Row="3" Style="{StaticResource TextboxStyle}" BorderThickness="0.5" HorizontalScrollBarVisibility="Hidden" MouseDown="DDTb2_MouseDown" GotFocus="DDTb2_GotFocus" PreviewTextInput="DDTb2_PreviewTextInput"/>
+            <TextBox x:Name="WWTb2" Grid.Column="4" Grid.Row="3" Style="{StaticResource TextboxStyle}" BorderThickness="0.5" HorizontalScrollBarVisibility="Hidden" MouseDown="WWTb2_MouseDown" GotFocus="WWTb2_GotFocus" PreviewTextInput="WWTb2_PreviewTextInput"/>
+            <TextBox x:Name="MMTb2" Grid.Column="5" Grid.Row="3" Style="{StaticResource TextboxStyle}" BorderThickness="0.5" HorizontalScrollBarVisibility="Hidden" MouseDown="MMTb2_MouseDown" GotFocus="MMTb2_GotFocus" PreviewTextInput="MMTb2_PreviewTextInput"/>
+            <TextBox x:Name="YYTb2" Grid.Column="6" Grid.Row="3" Style="{StaticResource TextboxStyle}" BorderThickness="0.5" HorizontalScrollBarVisibility="Hidden" MouseDown="YYTb2_MouseDown" GotFocus="YYTb2_GotFocus" PreviewTextInput="YYTb2_PreviewTextInput" Margin="0,0,10,0"/>
+        </Grid>
+
+        <!--Ressult Textbox-->
+
+        <TextBox x:Name="ResultTb" Height="30" Style="{StaticResource TextboxStyle}" Margin="115,100,126,289" HorizontalScrollBarVisibility="Hidden" IsReadOnly="True"/>
+
+        <!--Radio buttons-->
+        <Grid Height="25" Width="100" Margin="10,105,432,289">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <RadioButton x:Name="CommonRadio" IsChecked="True" Content="Com" Grid.Column="0"  ToolTip="Common Time calculation" Style="{StaticResource RadioStyle}" Checked="CommonRadio_Checked"/>
+            <RadioButton x:Name="AdvRadio" Content="Adv" Grid.Column="1" ToolTip="Advanced Time calculation" Style="{StaticResource RadioStyle}" Checked="AdvRadio_Checked"/>
+
+        </Grid>
+
+        <!--Time result op combo-->
+        <ComboBox x:Name="ComResOpCombo" Height="30" Style="{StaticResource ComboStyle}" Margin="416,100,10,289" SelectionChanged="ComResOpCombo_SelectionChanged" Visibility="Visible">
+            <ComboBoxItem Content="ss" IsSelected="True" Style="{StaticResource ComboItemStyle}"/>
+            <ComboBoxItem Content="min" Style="{StaticResource ComboItemStyle}"/>
+            <ComboBoxItem Content="mm-ss" Style="{StaticResource ComboItemStyle}"/>
+            <ComboBoxItem Content="hh" Style="{StaticResource ComboItemStyle}"/>
+            <ComboBoxItem Content="hh-mm" Style="{StaticResource ComboItemStyle}"/>
+            <ComboBoxItem Content="hh-mm-ss" Style="{StaticResource ComboItemStyle}"/>
+            <ComboBoxItem Content="dd" Style="{StaticResource ComboItemStyle}"/>
+            <ComboBoxItem Content="dd-hh" Style="{StaticResource ComboItemStyle}"/>
+            <ComboBoxItem Content="dd-hh-mm" Style="{StaticResource ComboItemStyle}"/>
+            <ComboBoxItem Content="ww" Style="{StaticResource ComboItemStyle}"/>
+            <ComboBoxItem Content="ww-dd" Style="{StaticResource ComboItemStyle}"/>
+            <ComboBoxItem Content="ww-dd-hh" Style="{StaticResource ComboItemStyle}"/>
+            <ComboBoxItem Content="MM" Style="{StaticResource ComboItemStyle}"/>
+            <ComboBoxItem Content="MM-ww" Style="{StaticResource ComboItemStyle}"/>
+            <ComboBoxItem Content="MM-ww-dd" Style="{StaticResource ComboItemStyle}"/>
+            <ComboBoxItem Content="yy" Style="{StaticResource ComboItemStyle}"/>
+            <ComboBoxItem Content="yy-MM" Style="{StaticResource ComboItemStyle}"/>
+            <ComboBoxItem Content="yy-MM-ww" Style="{StaticResource ComboItemStyle}"/>
+            <ComboBoxItem Content="yy-MM-dd" Style="{StaticResource ComboItemStyle}"/>
+        </ComboBox>
+
+        <!--Date Time adv textboxes-->
+        <Grid x:Name="AdvGrid" Height="80" Width="520" Margin="11,5,12,314" Visibility="Hidden">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="360"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <TextBox x:Name="InputTB1" Grid.Column="0" Grid.Row="0" Style="{StaticResource TextboxStyle}" HorizontalScrollBarVisibility="Hidden" MouseDown="InputTB1_MouseDown" GotFocus="InputTB1_GotFocus" />
+            <TextBox x:Name="InputTB2" Grid.Column="0" Grid.Row="1" Style="{StaticResource TextboxStyle}" HorizontalScrollBarVisibility="Hidden" Visibility="Hidden" MouseDown="InputTB2_MouseDown" GotFocus="InputTB2_GotFocus"/>
+
+            <TextBox x:Name="Supinput1" Style="{StaticResource TextboxStyle}" Grid.Column="0" Grid.Row="1" Width="120" Margin="0,0,240,0" BorderThickness="1" HorizontalScrollBarVisibility="Hidden" MouseDown="Supinput1_MouseDown" GotFocus="Supinput1_GotFocus"/>
+            <TextBox x:Name="Supinput2" Style="{StaticResource TextboxStyle}" Visibility="Collapsed" Grid.Column="0" Grid.Row="1" Width="120" Margin="120,0,120,0" BorderThickness="1" HorizontalScrollBarVisibility="Hidden" MouseDown="Supinput2_MouseDown" GotFocus="Supinput2_GotFocus"/>
+            <TextBox x:Name="Supinput3" Style="{StaticResource TextboxStyle}" Visibility="Collapsed" Grid.Column="0" Grid.Row="1" Width="120" Margin="240,0,0,0" BorderThickness="1" HorizontalScrollBarVisibility="Hidden" MouseDown="Supinput3_MouseDown" GotFocus="Supinput3_GotFocus"/>
+
+            <ComboBox x:Name="Input1OpCombo" Style="{StaticResource ComboStyle}" Grid.Column="1" Grid.Row="0" Margin="0,5,10,10" SelectionChanged="Input1OpCombo_SelectionChanged">
+                <ComboBoxItem Content="Today(now)" Style="{StaticResource ComboItemStyle}" IsSelected="True"/>
+                <ComboBoxItem Content="Yesterday" Style="{StaticResource ComboItemStyle}"/>
+                <ComboBoxItem Content="Tomorrow" Style="{StaticResource ComboItemStyle}"/>
+                <ComboBoxItem Content="Custom" Style="{StaticResource ComboItemStyle}" ToolTip="Enter custom date-time as:\ndd/MM/yy hh:mm:ss"/>
+            </ComboBox>
+
+
+            <ComboBox x:Name="Input2OpCombo" Style="{StaticResource ComboStyle}" Grid.Column="1" Grid.Row="1" Margin="0,5,10,10" SelectionChanged="Input2OpCombo_SelectionChanged">
+
+
+                <ComboBoxItem Content="ss"
+                              Style="{StaticResource ComboItemStyle}" IsSelected="True"/>
+
+                <ComboBoxItem Content="mm"
+                              Style="{StaticResource ComboItemStyle}"/>
+
+                <ComboBoxItem Content="mm-ss"
+                             Style="{StaticResource ComboItemStyle}"/>
+
+                <ComboBoxItem Content="hh"
+                             Style="{StaticResource ComboItemStyle}"/>
+
+                <ComboBoxItem Content="hh-mm"
+                              Style="{StaticResource ComboItemStyle}"/>
+
+                <ComboBoxItem Content="hh-mm-ss"
+                              Style="{StaticResource ComboItemStyle}"/>
+
+                <ComboBoxItem Content="dd"
+                              Style="{StaticResource ComboItemStyle}"/>
+                <ComboBoxItem Content="dd-hh"
+                              Style="{StaticResource ComboItemStyle}"/>
+                <ComboBoxItem Content="dd-hh-mm"
+                              Style="{StaticResource ComboItemStyle}"/>
+                <ComboBoxItem Content="ww"
+                              Style="{StaticResource ComboItemStyle}"/>
+                <ComboBoxItem Content="ww-dd"
+                              Style="{StaticResource ComboItemStyle}"/>
+                <ComboBoxItem Content="ww-dd-hh"
+                              Style="{StaticResource ComboItemStyle}"/>
+                <ComboBoxItem Content="MM"
+                              Style="{StaticResource ComboItemStyle}"/>
+                <ComboBoxItem Content="MM-ww"
+                              Style="{StaticResource ComboItemStyle}"/>
+                <ComboBoxItem Content="MM-ww-dd"
+                              Style="{StaticResource ComboItemStyle}"/>
+                <ComboBoxItem Content="yy"
+                              Style="{StaticResource ComboItemStyle}"/>
+                <ComboBoxItem Content="yy-MM"
+                              Style="{StaticResource ComboItemStyle}"/>
+                <ComboBoxItem Content="yy-MM-ww"
+                              Style="{StaticResource ComboItemStyle}"/>
+                <ComboBoxItem Content="yy-MM-dd"
+                              Style="{StaticResource ComboItemStyle}"/>
+                <ComboBoxItem Content="custom"
+                              Style="{StaticResource ComboItemStyle}"/>
+            </ComboBox>
+        </Grid>
+
+        <!--Input buttons-->
+
+        <Grid Width="200" Margin="10,202,332,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="Zero" Content="0" Grid.Column="0" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="Zero_Click"/>
+            <Button x:Name="Slash" Content="/" Grid.Column="1" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="Slash_Click"/>
+            <Button x:Name="One" Content="1" Grid.Column="0" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="One_Click"/>
+            <Button x:Name="Two" Content="2" Grid.Column="1" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="Two_Click"/>
+            <Button x:Name="Three" Content="3" Grid.Column="2" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="Three_Click"/>
+            <Button x:Name="Four" Content="4" Grid.Column="0" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="Four_Click"/>
+            <Button x:Name="Five" Content="5" Grid.Column="1" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="Five_Click"/>
+            <Button x:Name="Six" Content="6" Grid.Column="2" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="Six_Click"/>
+            <Button x:Name="Seven" Content="7" Grid.Column="0" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="Seven_Click"/>
+            <Button x:Name="Eight" Content="8" Grid.Column="1" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="Eight_Click"/>
+            <Button x:Name="Nine" Content="9" Grid.Column="2" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="Nine_Click"/>
+
+            <Button x:Name="Minus" Content="-" Grid.Column="3" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="Minus_Click"/>
+            <Button x:Name="Plus" Content="+" Grid.Column="3" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="Plus_Click"/>
+            <Button x:Name="Colon" Content=":" Grid.Column="2" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="Colon_Click"/>
+            <Button x:Name="Equal" Content="=" Grid.Column="3" Grid.Row="3" Grid.RowSpan="2"  Style="{StaticResource NumBtnStyle}" Click="Equal_Click"/>
+
+            <Button x:Name="CE" Content="CE" Grid.Column="0" Grid.Row="0" Style="{StaticResource CtrlBtnStyle}" Click="CE_Click"/>
+            <Button x:Name="C" Content="C" Grid.Column="1" Grid.Row="0" Style="{StaticResource CtrlBtnStyle}" Click="C_Click"/>
+            <Button x:Name="Delete" Content="&#xE94F;" Grid.Column="2" Grid.Row="0" Style="{StaticResource CtrlBtnStyle}" FontFamily="Segoe MDL2 Assets" Click="Delete_Click"/>
+            <Button x:Name="Ans" Content="Ans" Grid.Column="3" Grid.Row="0" Style="{StaticResource CtrlBtnStyle}" Click="Ans_Click"/>
+
+        </Grid>
+
+        <!--Converte panel-->
+        <Border Height="200" Width="300" Margin="232,202,10,17" BorderThickness="1">
+            <Grid>
+                <Label Content="Converter" Height="30" Style="{StaticResource LabelStyle}" HorizontalContentAlignment="Center" Margin="0,0,0,170"/>
+                <TextBox x:Name="FromBox"  Style="{StaticResource TextboxStyle}" Margin="0,35,105,89" HorizontalScrollBarVisibility="Auto" GotFocus="FromBox_GotFocus" MouseDown="FromBox_MouseDown" PreviewTextInput="FromBox_PreviewTextInput" />
+                <TextBox x:Name="ToBox"  Style="{StaticResource TextboxStyle}" Margin="0,116,105,10" HorizontalScrollBarVisibility="Auto"/>
+
+                <ComboBox x:Name="FromCombo" ToolTip="Convert From" Style="{StaticResource ComboStyle}" Margin="198,54,10,118" SelectionChanged="FromCombo_SelectionChanged"  >
+                    <ComboBoxItem Content="Picosecs" IsSelected="True"  Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Nanosecs" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Microsecs" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Millisecs" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Secs" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Mins" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Hours" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Days" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Weeks" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Months" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Years" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Decades" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Century" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Millens" Style="{StaticResource ComboItemStyle}"/>
+                </ComboBox>
+
+                <ComboBox x:Name="ToCombo" ToolTip="Convert To"  Style="{StaticResource ComboStyle}" Margin="198,135,10,38" SelectionChanged="ToCombo_SelectionChanged">
+                    <ComboBoxItem Content="Picosecs" IsSelected="True" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Nanosecs" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Microsecs" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Millisecs" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Secs" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Mins" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Hours" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Days" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Weeks" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Months" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Years" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Decades" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Century" Style="{StaticResource ComboItemStyle}"/>
+                    <ComboBoxItem Content="Millens" Style="{StaticResource ComboItemStyle}"/>
+                </ComboBox>
+            </Grid>
+        </Border>
+
+        <Button x:Name="DetailBtn" Content="Detail" ToolTip="View Detail for Date calculation" Style="{StaticResource MscBtnStyle}" Margin="442,96,40,289" Visibility="Hidden" Click="DetailBtn_Click"/>
+
+        <DatePicker x:Name="DPicker" ToolTip="Pick the date" Margin="11,135,499,258" Visibility="Collapsed" SelectedDateChanged="DPicker_SelectedDateChanged" SelectedDateFormat="Long"/>
+
+        <TextBox x:Name="DetailBlock" Background="#282828" Margin="11,130,12,17" Foreground="LightBlue"
+                   FontSize="14" Padding="10" Visibility="Hidden" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
+
+    </Grid>
+</Window>

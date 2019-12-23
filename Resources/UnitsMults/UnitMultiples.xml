@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Multiples>
+    <MetersMults >
+        <prefix>Yottameters</prefix>
+        <prefix>Zetameters</prefix>
+        <prefix>Exameters</prefix>
+        <prefix>Petameters</prefix>
+        <prefix>Terameters</prefix>
+        <prefix>Gigameters</prefix>
+        <prefix>Megameters</prefix>
+        <prefix>Kilometers</prefix>
+        <prefix>Hectometers</prefix>
+        <prefix>Decameters</prefix>
+        <prefix>Meters</prefix>
+        <prefix>Decimeters</prefix>
+        <prefix>Centimeters</prefix>
+        <prefix>Millimeters</prefix>
+        <prefix>Micrometers</prefix>
+        <prefix>Nanometers</prefix>
+        <prefix>Picometers</prefix>
+        <prefix>Femtometers</prefix>
+        <prefix>Attometers</prefix>
+        <prefix>Zeptometers</prefix>
+        <prefix>Yoctometers</prefix>
+    </MetersMults>
+    <MetersqrsMults >
+    <prefix>msqr</prefix>
+    <prefix>kmsqr</prefix>
+    <prefix>hmsqr</prefix>
+    <prefix>dmsqr</prefix>
+    <prefix>cmsqr</prefix>
+    <prefix>nmsqr</prefix>
+    <prefix>pmsqr</prefix>
+    <prefix>amsqr</prefix>
+    <prefix>mmsqr</prefix>
+    <prefix>µmsqr</prefix>
+    <prefix>fmsqr</prefix>
+
+    </MetersqrsMults>
+    <JouleMults >
+        <prefix>Yottajoules</prefix>
+        <prefix>Zetajoules</prefix>
+        <prefix>Exajoules</prefix>
+        <prefix>Petajoules</prefix>
+        <prefix>Terajoules</prefix>
+        <prefix>Gigajoules</prefix>
+        <prefix>Megajoules</prefix>
+        <prefix>Kilojoules</prefix>
+        <prefix>Hectojoules</prefix>
+        <prefix>Decajoules</prefix>
+        <prefix>Joules</prefix>
+        <prefix>Decijoules</prefix>
+        <prefix>Centijoules</prefix>
+        <prefix>Millijoules</prefix>
+        <prefix>Microjoules</prefix>
+        <prefix>Nanojoules</prefix>
+        <prefix>Picojoules</prefix>
+        <prefix>Femtojoules</prefix>
+        <prefix>Attojoules</prefix>
+        <prefix>Zeptojoules</prefix>
+        <prefix>Yoctojoules</prefix>
+    </JouleMults>
+    <KilogramMults >
+        <prefix>Yottagrams</prefix>
+        <prefix>Zetagramss</prefix>
+        <prefix>Exagrams</prefix>
+        <prefix>Petagrams</prefix>
+        <prefix>Teragrams</prefix>
+        <prefix>Gigagrams</prefix>
+        <prefix>Megagrams</prefix>
+        <prefix>Kilograms</prefix>
+        <prefix>Hectograms</prefix>
+        <prefix>Decagrams</prefix>
+        <prefix>Grams</prefix>
+        <prefix>Decigrams</prefix>
+        <prefix>Centigrams</prefix>
+        <prefix>Milligrams</prefix>
+        <prefix>Micrograms</prefix>
+        <prefix>Nanograms</prefix>
+        <prefix>Picograms</prefix>
+        <prefix>Femtograms</prefix>
+        <prefix>Attograms</prefix>
+        <prefix>Zeptograms</prefix>
+        <prefix>Yoctograms</prefix>
+        <prefix>Tonne</prefix>
+        <prefix>Kilotonne</prefix>
+        <prefix>Megatonne</prefix>
+        <prefix>Gigatonne</prefix>
+        <prefix>Teratonne</prefix>
+        <prefix>Petatonne</prefix>
+        <prefix>Exatonne</prefix>
+    </KilogramMults>
+    <WattsMults >
+        <prefix>Petawatts</prefix>
+        <prefix>Teraawatts</prefix>
+        <prefix>Gigawatts</prefix>
+        <prefix>Megawatts</prefix>
+        <prefix>Kilowatts</prefix>
+        <prefix>Watts</prefix>
+        <prefix>Milliwatts</prefix>
+        <prefix>Microawatts</prefix>
+        <prefix>Nanowatts</prefix>
+        <prefix>Picowatts</prefix>
+        <prefix>Femtowatts</prefix>
+        <prefix>Attowatts</prefix>
+    </WattsMults>
+    <PascalMults >
+        <prefix>Yottapascal</prefix>
+        <prefix>Zetapascal</prefix>
+        <prefix>Exapascal</prefix>
+        <prefix>Petapascal</prefix>
+        <prefix>Terapascal</prefix>
+        <prefix>Gigapascal</prefix>
+        <prefix>Megapascal</prefix>
+        <prefix>Kilopascal</prefix>
+        <prefix>Hectopascal</prefix>
+        <prefix>Decapascal</prefix>
+        <prefix>Pascal</prefix>
+        <prefix>Decipascal</prefix>
+        <prefix>Centipascal</prefix>
+        <prefix>Millipascal</prefix>
+        <prefix>Micropascal</prefix>
+        <prefix>Nanopascal</prefix>
+        <prefix>Picopascal</prefix>
+        <prefix>Femtopascal</prefix>
+        <prefix>Attopascal</prefix>
+        <prefix>Zeptopascal</prefix>
+        <prefix>Yoctopascal</prefix>
+    </PascalMults>
+    <MPSMults >
+        <prefix>meterpersec</prefix>
+        <prefix>kmpersec</prefix>
+        <prefix>kmpermin</prefix>
+        <prefix>milepersec</prefix>
+        <prefix>mileperhour</prefix>
+        <prefix>meterperhour</prefix>
+        <prefix>kmperhour</prefix>
+
+    </MPSMults>
+    <M3Mults >
+        <prefix>cubic_m</prefix>
+        <prefix>cubic_km</prefix>
+        <prefix>cubic_hm</prefix>
+        <prefix>cubic_dm</prefix>
+        <prefix>cubic_decm</prefix>
+        <prefix>cubic_cm</prefix>
+        <prefix>cubic_mm</prefix>
+        <prefix>cubic_µm</prefix>
+        <prefix>cubic_nm</prefix>
+        <prefix>cubic_pm</prefix>
+        <prefix>cubic_fm</prefix>
+        <prefix>cubic_am</prefix>
+        <prefix>cubic_zm</prefix>
+        <prefix>cubic_ym</prefix>
+    </M3Mults>
+</Multiples>

@@ -1,0 +1,294 @@
+﻿<Window x:Class="Calckit.GUIs.HelpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calckit.GUIs"
+        mc:Ignorable="d"
+        Title="Settings-Calckit" Height="500" Width="650" MaxHeight="500" MaxWidth="650"
+        MinHeight="500" MinWidth="650" Style="{StaticResource WindowStyle}" Loaded="Window_Loaded">
+    <Grid>
+        <TabControl Margin="10,12,10,10" BorderThickness="0">
+            <TabItem Header="Settings" >
+                <Grid Background="#282828">
+                    <Label Content="Start-up Tool" Foreground="LightBlue" FontSize="20" Margin="10,22,419,346"/>
+                    <ComboBox x:Name="StartupCombo" Style="{StaticResource ComboStyle}" Margin="10,70,323,307" SelectionChanged="StartupCombo_SelectionChanged">
+                        <ComboBoxItem Style="{StaticResource ComboItemStyle}" IsSelected="True" Content="Scientific Calculator"/>
+                        <ComboBoxItem Style="{StaticResource ComboItemStyle}" Content="Digital Calculator"/>
+
+                    </ComboBox>
+                    <CheckBox x:Name="MakeDef" Content="Make Default" Foreground="Beige" Margin="10,114,419,272"/>
+
+                    <Label Content="Save History to:" Foreground="LightBlue" FontSize="20" Margin="10,181,419,187"/>
+                    <TextBox x:Name="PathBox" IsReadOnly="True" Style="{StaticResource TextboxStyle}" Margin="10,234,40,138"  HorizontalContentAlignment="Left" FontSize="16"/>
+                    <Button x:Name="PathBtn" Style="{StaticResource MscBtnStyle}" Content="Browse" Margin="503,278,40,91" FontSize="16" Click="PathBtn_Click"/>
+                    <CheckBox x:Name="MakeDef2" Content="Save on Exit" Foreground="Beige" Margin="200,283,296,104" Checked="MakeDef2_Checked"/>
+                    <CheckBox x:Name="MakeDef3" Content="Make Default" Foreground="Beige" Margin="10,283,486,104" Checked="MakeDef3_Checked"/>
+
+                    <CheckBox x:Name="MakeDef4" Content="Ask on Start" Opacity="0.7" Foreground="Beige" Margin="10,377,486,10" Checked="MakeDef4_Checked"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Help" Width="60" x:Name="HelpTab">
+
+                <Grid Background="#282828">
+                    <TabControl>
+                        <TabItem Header="Get Started">
+                            <Grid Background="#282828">
+                                <FlowDocumentScrollViewer Opacity="0.7" FontSize="14" Foreground="LightBlue">
+                                    <FlowDocument>
+                                        <Paragraph>
+                                            The calckit help you perform mathematical calculations,digital, based function calculations,
+                                    date time,color operations and units convertion by just entering values
+                                    or expression as required and the app do the rest for you to get answer.
+                                            <LineBreak/>
+                                            <LineBreak/>
+                                            When you launch the app, you get screen to choose which tools to open and you can make a default one
+                                    or choose app default so that you won't get that screen next time.
+                                            <LineBreak/>
+                                            After that the app start to your chosen window or open default one which is the scientific calculator.
+                                            <LineBreak/>
+                                            <LineBreak/>
+                                            From there you can switch to other tools easily by selecting from the list available:
+                                            <LineBreak/>
+                                            -Standard Calculator which provide basic calculation tool.
+                                            <LineBreak/> -Scientific Calculator which provide more functionality on calculation
+                                            <LineBreak/> -Converter which help convert between different units of measurement
+                                            <LineBreak/> -Date-Time Calculator which help do operation on dates and time.
+                                            <LineBreak/> -Colors Calculator which helps do operation on colors
+                                            <LineBreak/> -Digital Calculator this support features like binary operation,boolean algebra and subnetting
+                                            <LineBreak/> -Contants-Formula this provide way of storing constants and formulas for future use and contains some defaults
+                                            <LineBreak/>
+                                            <LineBreak/>
+                                            To know more flow the userguide on each tool.
+                                        </Paragraph>
+                                    </FlowDocument>
+                                </FlowDocumentScrollViewer>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Standard">
+                            <Grid Background="#282828">
+                                <FlowDocumentScrollViewer Opacity="0.7" FontSize="14" Foreground="LightBlue">
+                                    <FlowDocument>
+                                        <Paragraph>
+                                            In the standard calculator, you can perform simple mathematical expressions like
+                                    (45+278/+(12*58/4+e-45)) as the figure below shows:
+                                            <Image Source="/Resources/helpImages/StdPrev.png"/>
+                                        </Paragraph>
+                                    </FlowDocument>
+                                </FlowDocumentScrollViewer>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Scientific">
+                            <Grid Background="#282828">
+                                <FlowDocumentScrollViewer Opacity="0.7" Foreground="LightBlue" FontSize="14">
+                                    <FlowDocument>
+                                        <Paragraph>
+                                            In the Scientif calculator, you can perform input mathematical expressions like
+                                     as the figure below shows:
+                                            <Image Source="/Resources/helpImages/ScintPrev.png"/>
+                                            <LineBreak/>
+                                            In this Scientific, you can perform advanced calculation and here are the functions to use 
+                                    and how to input them correctly:
+                                            <LineBreak/>
+                                            <Bold>Trigonometric Functions:</Bold>
+                                            <LineBreak/> -Make sure the values are enclosed in brackets like sin(78)
+                                            <LineBreak/> -You can also do this on expression like cos(4+78/23...)
+                                            <LineBreak/>
+                                            <LineBreak/>
+                                            <Bold>Logarithmic Functions:</Bold>
+                                            <LineBreak/> -For log10 and ln do like log(45) or ln(78)
+                                            <LineBreak/> -For loga, you enter log(45,4) where 4 represent the base
+                                            <LineBreak/>
+                                            <LineBreak/>
+                                            <Bold>Matrix Functions:</Bold>
+                                            <LineBreak/> -For matrix ,you enclose values in brackets and curl brackets and separate each element
+                                    by comma and each row by comma like this
+                                            <LineBreak/> det({{45,25},{63,25},{45,96}})
+                                    and the matrix functions are inv for inverse, det for determinant and trans for transpose
+                                            <LineBreak/>
+                                            <LineBreak/>
+                                            <Bold>Complex Numbers:</Bold>
+                                            <LineBreak/> -For complex funcs like re for real, im for imaginary,conj for conjugate and so on,
+                                    you enclose values in brackets like this conj((4+8i)/(8-6i)) or
+                                            <LineBreak/> re(45+6i) and so on
+                                            <LineBreak/>
+                                            <LineBreak/>
+                                            <Bold>Misc Functions:</Bold>
+                                            <LineBreak/> -For root, you enter the value,the root like root(78,4)
+                                            <LineBreak/> -For max, min, ave for average,count,std and other statistical functions, you enclose
+                                    values in brackets and separate elements by comma like this
+                                            <LineBreak/> max(45,23,78)
+                                            <LineBreak/>
+                                            <LineBreak/>
+                                            Notice that if you face errors, you can read error message and do accordingly.
+                                            <LineBreak/>
+                                            <LineBreak/>
+                                        </Paragraph>
+                                    </FlowDocument>
+                                </FlowDocumentScrollViewer>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Date-Time">
+                            <Grid Background="#282828">
+                                <FlowDocumentScrollViewer Opacity="0.7" Foreground="LightBlue" FontSize="14">
+                                    <FlowDocument>
+                                        <Paragraph>
+                                            For the date time, you can add or subtract min,sec,years and so on
+                                    as shown:
+                                            <Image Source="/Resources/HelpImages/DatePrev.png"/>
+                                            <LineBreak/> Because the result is in seconds,
+                                     you can view the result in different values from the drop down
+                                            <LineBreak/>
+                                            To use advanced mode, check Adv buttons.From there you choose in first dropdown either
+                                    Today,Tomorrow,Yesterday or custom. when custom is selected, you enter you date in the format
+                                            <LineBreak/> dd/MM/yy hh:mm:ss otherwise the values are entered automatically. 
+                                    After that you select the mode for value 2 and enter it accordingly as shown below:
+                                            <Image Source="/Resources/HelpImages/DatePrev2.png"/>
+                                            <LineBreak/>
+                                            If you have selected custom from the above, you can pick a date like:
+                                            <Image Source="/Resources/HelpImages/DatePrev4.png"/>
+                                            <LineBreak/>
+                                            And after calculating you can view the details by clicking detail button as:
+                                            <Image Source="/Resources/HelpImages/DatePrev3.png"/>
+                                        </Paragraph>
+                                    </FlowDocument>
+                                </FlowDocumentScrollViewer>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Converter">
+                            <Grid Background="#282828">
+                                <FlowDocumentScrollViewer Opacity="0.7" Foreground="LightBlue" FontSize="14">
+                                    <FlowDocument>
+                                        <Paragraph>
+                                            This tool helps you to convert between units.To get started you check the units or mults for multiples
+                                    and the select the type as shown
+                                            <Image Source="/Resources/HelpImages/ConvPrev1.png"/>
+                                            <LineBreak/>
+                                            Enter the value to convert, selecte where you convert from and where you convert to as shown
+                                            <Image Source="/Resources/HelpImages/ConvPrev.png"/>
+                                            <LineBreak/>
+                                            For converting unit multiples, check the Mults button and do the same procedure as above
+                                            <LineBreak/>
+                                            <LineBreak/>
+
+
+                                        </Paragraph>
+                                    </FlowDocument>
+                                </FlowDocumentScrollViewer>
+
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Colors">
+                            <Grid Background="#282828">
+                                <FlowDocumentScrollViewer Opacity="0.7" Foreground="LightBlue" FontSize="14">
+                                    <FlowDocument>
+                                        <Paragraph>
+                                            In color tool, you can add,substract colors and convert between different color representation
+                                            <LineBreak/> -For addition or subtraction,check Hex or RGB, enter value1 and value2 by writing or picker
+                                    ,click operator and press enter as shown:
+                                            <Image Source="/Resources/HelpImages/ColorPrev.png"/>
+                                            <LineBreak/> Color picker
+                                            <LineBreak/>
+                                            <Image Source="/Resources/HelpImages/ColorPrev2.png"/>
+                                            <LineBreak/> Pick predefined colors
+                                            <LineBreak/>
+                                            <Image Source="/Resources/HelpImages/ColorPrev3.png"/>
+                                            <LineBreak/> Result and conveter preview
+                                            <LineBreak/>
+                                            <Bold>Note that:</Bold> After obtaining the result, you can convert it to its RGB or HEX equivalent
+                                    by selecting from dropdown behind the result.
+                                            <LineBreak/>
+                                            During convertion, select where to convert from, enter the value accordingly and select where to
+                                    convert to. You can also pick values as shown before.
+                                        </Paragraph>
+                                    </FlowDocument>
+                                </FlowDocumentScrollViewer>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Digital">
+                            <Grid Background="#282828">
+
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="About" Width="60" x:Name="AboutTab">
+                <Grid Background="#282828">
+
+                    <FlowDocumentScrollViewer>
+                        <FlowDocument Foreground="LightBlue" >
+                            <FlowDocument.Blocks>
+
+                                <Paragraph FontSize="20" TextAlignment="Center" TextDecorations="underline" FontWeight="Bold">
+                                    About Calckit App
+                                </Paragraph>
+                                <Paragraph FontSize="14">
+                                    <Bold>#Name Description</Bold>
+                                    <LineBreak/>
+                                    The Calckit App is named so from the two words:
+                                    <LineBreak/>
+                                    -Calc which means Calculation and
+                                    <LineBreak/>
+                                    -Kit to represent collection of tools(Toolkit)
+                                    <LineBreak/>
+                                    So the name Calculation Kit
+                                    <LineBreak/>
+                                    <LineBreak/>
+                                    <Bold>#App Description</Bold>
+                                    <LineBreak/>
+                                    This app was developed after realising how people stragles with calculations
+                                        in different fields like Science,Engineering,Economy and others.
+                                    <LineBreak/>
+                                    People usually use calculator devices, but they have a lot of limitations forexample calculating
+                                        this expression:
+                                    <LineBreak/> 12+45(sin(45+23)*cos(60/2.5)/log(25))+max(45,12,36)-(5!+exp(e+tan(78))
+                                    <LineBreak/>
+                                    Calculating this expression require many processes while in this app, you input whole expression and press enter only.
+                                    <LineBreak/>
+                                    This app also goes beyond to calculating all trigonometric,logalithmic,exponential,simple
+                                    <LineBreak/> stastical,derivative,matrix,complex numbers and more functions.
+                                    <LineBreak/>
+                                    <LineBreak/>
+                                    The app is not only for mathematical functions, it also perform the following:
+                                    <LineBreak/>
+                                    -Units convertion
+                                    <LineBreak/>
+                                    -Date and Time calculation
+                                    <LineBreak/>
+                                    -Colors calculation and converter
+                                    <LineBreak/>
+                                    -Digital calculations,Code converter,Boolean algebra and subnetting
+                                    <LineBreak/>
+                                    -Provide most Constants and Formulas and you can define your own and work with them
+                                    <LineBreak/>
+                                    For using all these tools, you find guides on Help tab.
+                                    <LineBreak/>
+                                    <LineBreak/>
+                                    <Bold>#Version</Bold>
+                                    <LineBreak/>
+                                    This is version 1.0 for windows PC with .Net Framework 4.6
+                                    <LineBreak/>
+                                    <LineBreak/>
+                                    <Bold>#Author</Bold>
+                                    <LineBreak/>
+                                    <Bold>Name:</Bold> Francois MUGOROZI
+                                    <LineBreak/>
+                                    <Bold>Location:</Bold> kigali-Rwanda
+                                    <LineBreak/>
+                                    <Bold>Email:</Bold> francoismugorozis@outlook.com
+                                    <LineBreak/>
+                                    <Bold>Phone:</Bold> +250781139747
+                                </Paragraph>
+                            </FlowDocument.Blocks>
+                        </FlowDocument>
+                    </FlowDocumentScrollViewer>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+        
+        
+    </Grid>
+</Window>

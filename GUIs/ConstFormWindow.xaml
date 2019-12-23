@@ -1,0 +1,298 @@
+﻿<Window x:Class="Calckit.GUIs.ConstFormWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calckit.GUIs"
+        mc:Ignorable="d"
+        Title="Constants-Formulas-Calckit" Height="600" MaxHeight="600" Width="650" MaxWidth="650"
+        MinHeight="600" MinWidth="650" Style="{StaticResource WindowStyle}"
+        Loaded="Window_Loaded" >
+    <Window.Resources>
+        <XmlDataProvider x:Key="ConstantsData" Source="../../Resources/Constants.xml"/>
+        <XmlDataProvider x:Key="FormulasData" Source="../../Resources/Formulas.xml"/>
+    </Window.Resources>
+    
+    <Grid>
+
+        <!--Upper labels-->
+        <Label Content="Name" 
+               Style="{StaticResource LabelStyle}"
+               Margin="10,24,477,505"/>
+
+        <Label Content="Value" 
+           Style="{StaticResource LabelStyle}"
+            Margin="216,24,271,505"/>
+
+        <Label Content="Description" 
+           Style="{StaticResource LabelStyle}"
+            Margin="426,25,61,505"/>
+
+        <TextBox x:Name="NameTb" Style="{StaticResource TextboxStyle}" HorizontalContentAlignment="Left" Margin="10,70,442,436" HorizontalScrollBarVisibility="Auto" MouseDown="NameTb_MouseDown" GotFocus="NameTb_GotFocus"/>
+        <TextBox x:Name="ValueTb" Style="{StaticResource TextboxStyle}" HorizontalContentAlignment="Left" Margin="216,70,221,436" HorizontalScrollBarVisibility="Auto" MouseDown="ValueTb_MouseDown" GotFocus="ValueTb_GotFocus" FontFamily="Cambria Math"/>
+        <TextBox x:Name="DescriptionTb" Style="{StaticResource TextboxStyle}"  HorizontalContentAlignment="Left" Margin="426,70,10,422" VerticalScrollBarVisibility="Auto" MouseDown="DescriptionTb_MouseDown" GotFocus="DescriptionTb_GotFocus"/>
+        <Grid Margin="10,138,442,401">
+
+            <RadioButton x:Name="ConstRadio" IsChecked="True" Height="30" Content="Constants" Style="{StaticResource RadioStyle}" Margin="0,0,101,0" Checked="ConstRadio_Checked"/>
+            <RadioButton x:Name="FormRadio" Height="30" Content="Formulas" Style="{StaticResource RadioStyle}" Margin="101,0,0,0" Checked="FormRadio_Checked"/>
+
+        </Grid>
+
+
+        <Button x:Name="RemoveBtn" Style="{StaticResource MscBtnStyle}" Content="Remove" ToolTip="Remove the item from file" Margin="557,147,10,385" Click="RemoveBtn_Click"/>
+        <Button x:Name="AddBtn" Style="{StaticResource MscBtnStyle}" Content="Add" ToolTip="Add the item from file" Margin="477,147,90,385" Click="AddBtn_Click"/>
+
+        <!--Buttons-->
+        <Button x:Name="Keyboardbtn" Margin="10,228,570,299"
+            Content=""
+            ToolTip="Switch Keyboard and View"
+            Style="{StaticResource CtrlBtnStyle}" Height="Auto" Width="Auto" FontFamily="Segoe MDL2 Assets" Click="Keyboardbtn_Click"/>
+        <Button x:Name="CEBtn" Margin="77,228,503,299"
+            Content="CE"
+            Style="{StaticResource CtrlBtnStyle}" Height="Auto" Width="Auto" Click="CEBtn_Click" />
+        <Button x:Name="DeleteBtn" Margin="144,228,436,299"
+            Content="&#xE94F;"
+           
+            Style="{StaticResource CtrlBtnStyle}" Height="Auto" Width="Auto" FontFamily="Segoe MDL2 Assets" Click="DeleteBtn_Click"/>
+
+        <!--Search controls-->
+
+        <TextBox x:Name="SearchTB" Height="40" Style="{StaticResource TextboxStyle}" Margin="240,230,66,299" MouseDown="SearchTB_MouseDown" GotFocus="SearchTB_GotFocus"/>
+
+
+        <Button x:Name="Searchbtn" Margin="581,230,10,299"
+            Content="&#xE11A;"
+            ToolTip="Search"
+            Style="{StaticResource MscBtnStyle}" Height="Auto" Width="Auto" FontFamily="Segoe MDL2 Assets" Click="Searchbtn_Click" />
+
+
+        <!--Input Buttons-->
+
+        <Grid x:Name="InputBtnGrid" Margin="10,275,10,10" Visibility="Hidden">
+
+            <Button x:Name="NextBtnsBtn" ToolTip="Load more buttons"  Style="{StaticResource CtrlBtnStyle}" Margin="584,238,0,0" Content="↓" FontSize="30" Height="Auto" Width="Auto" FontWeight="ExtraBold" Click="NextBtnsBtn_Click" />
+            <Button x:Name="CasesBtn" ToolTip="Switch cases"  Style="{StaticResource CtrlBtnStyle}" Margin="584,0,0,240" Content="⇩" FontSize="20" Height="Auto" Width="Auto" FontWeight="Bold" Click="CasesBtn_Click" />
+
+            <!--Character buttons grid-->
+            <Grid x:Name="CharGrid" Height="280" Width="580" Margin="0,0,43,0" Visibility="Visible">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="58"/>
+                    <ColumnDefinition Width="58"/>
+                    <ColumnDefinition Width="58"/>
+                    <ColumnDefinition Width="58"/>
+                    <ColumnDefinition Width="58"/>
+                    <ColumnDefinition Width="58"/>
+                    <ColumnDefinition Width="58"/>
+                    <ColumnDefinition Width="58"/>
+                    <ColumnDefinition Width="58"/>
+                    <ColumnDefinition Width="58"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+
+                <Button x:Name="ZBtn" Content="Z" Grid.Column="0" Grid.Row="6" Style="{StaticResource NumBtnStyle}" Click="ZBtn_Click" />
+                <Button x:Name="ZBtn1" Content="A" Grid.Column="0" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="ZBtn1_Click" />
+                <Button x:Name="ZBtn2" Content="Q" Grid.Column="0" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="ZBtn2_Click" />
+                <Button x:Name="ZBtn3" Content="`" Grid.Column="0" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="ZBtn3_Click"/>
+                <Button x:Name="ZBtn4" Content="(" Grid.Column="0" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="ZBtn4_Click" />
+                <Button x:Name="ZBtn5" Content=" {" Grid.Column="0" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="ZBtn5_Click" />
+                <Button x:Name="ZBtn6" Content="1" Grid.Column="0" Grid.Row="0" Style="{StaticResource NumBtnStyle}" Click="ZBtn6_Click" />
+                <Button x:Name="ZBtn7" Content="X" Grid.Column="1" Grid.Row="6" Style="{StaticResource NumBtnStyle}" Click="ZBtn7_Click" />
+                <Button x:Name="ZBtn8" Content="V" Grid.Column="2" Grid.Row="6" Style="{StaticResource NumBtnStyle}" Click="ZBtn8_Click" />
+                <Button x:Name="ZBtn9" Content="B" Grid.Column="3" Grid.Row="6" Style="{StaticResource NumBtnStyle}" Click="ZBtn9_Click" />
+                <Button x:Name="ZBtn10" Content="N" Grid.Column="4" Grid.Row="6" Style="{StaticResource NumBtnStyle}" Click="ZBtn10_Click" />
+                <Button x:Name="ZBtn11" Content="M" Grid.Column="5" Grid.Row="6" Style="{StaticResource NumBtnStyle}" Click="ZBtn11_Click" />
+                <Button x:Name="ZBtn12" Content="," Grid.Column="6" Grid.Row="6" Style="{StaticResource NumBtnStyle}" Click="ZBtn12_Click" />
+                <Button x:Name="ZBtn13" Content="." Grid.Column="7" Grid.Row="6" Style="{StaticResource NumBtnStyle}" Click="ZBtn13_Click"/>
+                <Button x:Name="ZBtn14" Content="/" Grid.Column="8" Grid.Row="6" Style="{StaticResource NumBtnStyle}" Click="ZBtn14_Click"/>
+                <Button x:Name="ZBtn16" Content="S" Grid.Column="1" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="ZBtn16_Click"/>
+                <Button x:Name="ZBtn17" Content="W" Grid.Column="1" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="ZBtn17_Click"/>
+                <Button x:Name="ZBtn18" Content="~" Grid.Column="1" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="ZBtn18_Click"/>
+                <Button x:Name="ZBtn19" Content=")" Grid.Column="1" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="ZBtn19_Click"/>
+                <Button x:Name="ZBtn20" Content="}" Grid.Column="1" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="ZBtn20_Click"/>
+                <Button x:Name="ZBtn21" Content="2" Grid.Column="1" Grid.Row="0" Style="{StaticResource NumBtnStyle}" Click="ZBtn21_Click"/>
+                <Button x:Name="ZBtn22" Content="D" Grid.Column="2" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="ZBtn22_Click"/>
+                <Button x:Name="ZBtn23" Content="E" Grid.Column="2" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="ZBtn23_Click"/>
+                <Button x:Name="ZBtn24" Content="!" Grid.Column="2" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="ZBtn24_Click"/>
+                <Button x:Name="ZBtn25" Content="-" Grid.Column="2" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="ZBtn25_Click"/>
+                <Button x:Name="ZBtn26" Content="&lt;" Grid.Column="2" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="ZBtn26_Click"/>
+                <Button x:Name="ZBtn27" Content="3" Grid.Column="2" Grid.Row="0" Style="{StaticResource NumBtnStyle}" Click="ZBtn27_Click"/>
+                <Button x:Name="ZBtn28" Content="F" Grid.Column="3" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="ZBtn28_Click"/>
+                <Button x:Name="ZBtn29" Content="R" Grid.Column="3" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="ZBtn29_Click"/>
+                <Button x:Name="ZBtn30" Content="@" Grid.Column="3" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="ZBtn30_Click"/>
+                <Button x:Name="ZBtn31" Content="_" Grid.Column="3" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="ZBtn31_Click"/>
+                <Button x:Name="ZBtn32" Content="&gt;" Grid.Column="3" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="ZBtn32_Click"/>
+                <Button x:Name="ZBtn33" Content="4" Grid.Column="3" Grid.Row="0" Style="{StaticResource NumBtnStyle}" Click="ZBtn33_Click"/>
+                <Button x:Name="ZBtn34" Content="G" Grid.Column="4" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="ZBtn34_Click"/>
+                <Button x:Name="ZBtn35" Content="T" Grid.Column="4" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="ZBtn35_Click"/>
+                <Button x:Name="ZBtn36" Content="#" Grid.Column="4" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="ZBtn36_Click"/>
+                <Button x:Name="ZBtn37" Content="±" Grid.Column="4" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="ZBtn37_Click"/>
+                <Button x:Name="ZBtn38" Content="[" Grid.Column="4" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="ZBtn38_Click"/>
+                <Button x:Name="ZBtn39" Content="5" Grid.Column="4" Grid.Row="0" Style="{StaticResource NumBtnStyle}" Click="ZBtn39_Click"/>
+                <Button x:Name="ZBtn40" Content="H" Grid.Column="5" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="ZBtn40_Click"/>
+                <Button x:Name="ZBtn41" Content="Y" Grid.Column="5" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="ZBtn41_Click"/>
+                <Button x:Name="ZBtn42" Content="$" Grid.Column="5" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="ZBtn42_Click"/>
+                <Button x:Name="ZBtn43" Content="+" Grid.Column="5" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="ZBtn43_Click"/>
+                <Button x:Name="ZBtn44" Content="]" Grid.Column="5" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="ZBtn44_Click"/>
+                <Button x:Name="ZBtn45" Content="6" Grid.Column="5" Grid.Row="0" Style="{StaticResource NumBtnStyle}" Click="ZBtn45_Click"/>
+                <Button x:Name="ZBtn46" Content="J" Grid.Column="6" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="ZBtn46_Click"/>
+                <Button x:Name="ZBtn47" Content="U" Grid.Column="6" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="ZBtn47_Click"/>
+                <Button x:Name="ZBtn48" Content="%" Grid.Column="6" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="ZBtn48_Click"/>
+                <Button x:Name="ZBtn49" Content=":" Grid.Column="6" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="ZBtn49_Click"/>
+                <Button x:Name="ZBtn50" Content="&quot;" Grid.Column="6" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="ZBtn50_Click"/>
+                <Button x:Name="ZBtn51" Content="7" Grid.Column="6" Grid.Row="0" Style="{StaticResource NumBtnStyle}" Click="ZBtn51_Click"/>
+                <Button x:Name="ZBtn52" Content="K" Grid.Column="7" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="ZBtn52_Click"/>
+                <Button x:Name="ZBtn53" Content="I" Grid.Column="7" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="ZBtn53_Click"/>
+                <Button x:Name="ZBtn54" Content="^" Grid.Column="7" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="ZBtn54_Click"/>
+                <Button x:Name="ZBtn55" Content="?" Grid.Column="7" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="ZBtn55_Click"/>
+                <Button x:Name="ZBtn56" Content="'" Grid.Column="7" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="ZBtn56_Click"/>
+                <Button x:Name="ZBtn57" Content="8" Grid.Column="7" Grid.Row="0" Style="{StaticResource NumBtnStyle}" Click="ZBtn57_Click"/>
+                <Button x:Name="ZBtn58" Content="L" Grid.Column="8" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="ZBtn58_Click"/>
+                <Button x:Name="ZBtn59" Content="O" Grid.Column="8" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="ZBtn59_Click"/>
+                <Button x:Name="ZBtn60" Content="&amp;" Grid.Column="8" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="ZBtn60_Click"/>
+                <Button x:Name="ZBtn61" Content="\" Grid.Column="8" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="ZBtn61_Click"/>
+                <Button x:Name="ZBtn62" Content="|" Grid.Column="8" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="ZBtn62_Click"/>
+                <Button x:Name="ZBtn63" Content="9" Grid.Column="8" Grid.Row="0" Style="{StaticResource NumBtnStyle}" Click="ZBtn63_Click"/>
+                <Button x:Name="ZBtn64" Content=";" Grid.Column="9" Grid.Row="5" Style="{StaticResource NumBtnStyle}" Click="ZBtn64_Click"/>
+                <Button x:Name="ZBtn65" Content="P" Grid.Column="9" Grid.Row="4" Style="{StaticResource NumBtnStyle}" Click="ZBtn65_Click"/>
+                <Button x:Name="ZBtn66" Content="*" Grid.Column="9" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="ZBtn66_Click"/>
+                <Button x:Name="ZBtn67" Content="=" Grid.Column="9" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="ZBtn67_Click"/>
+                <Button x:Name="ZBtn68" Content="£" Grid.Column="9" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="ZBtn68_Click"/>
+                <Button x:Name="ZBtn69" Content="0" Grid.Column="9" Grid.Row="0" Style="{StaticResource NumBtnStyle}" Click="ZBtn69_Click"/>
+
+
+            </Grid>
+
+            <!--Symbols for formulas-->
+            <Grid x:Name="SymbolGrid" Height="280" Width="580" Margin="0,0,43,0" Visibility="Collapsed">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="58"/>
+                    <ColumnDefinition Width="58"/>
+                    <ColumnDefinition Width="58"/>
+                    <ColumnDefinition Width="58"/>
+                    <ColumnDefinition Width="58"/>
+                    <ColumnDefinition Width="58"/>
+                    <ColumnDefinition Width="58"/>
+                    <ColumnDefinition Width="58"/>
+                    <ColumnDefinition Width="58"/>
+                    <ColumnDefinition Width="58"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+
+                <Button x:Name="Symbol" Content="e" Style="{StaticResource NumBtnStyle}" Grid.Column="0" Grid.Row="6" FontFamily="Cambria Math" Click="Symbol_Click"/>
+                <Button x:Name="Symbol1" Content="sin" Style="{StaticResource NumBtnStyle}" Grid.Column="0" Grid.Row="5" FontFamily="Cambria Math" Click="Symbol1_Click"/>
+                <Button x:Name="Symbol2" Content="sin⁻¹" Style="{StaticResource NumBtnStyle}" Grid.Column="0" Grid.Row="4" FontFamily="Cambria Math" Click="Symbol2_Click"/>
+                <Button x:Name="Symbol3" Content="⌽" Style="{StaticResource NumBtnStyle}" Grid.Column="0" Grid.Row="3" FontFamily="Cambria Math"  Click="Symbol3_Click"/>
+                <Button x:Name="Symbol4" Content="∂" Style="{StaticResource NumBtnStyle}" Grid.Column="0" Grid.Row="2" FontFamily="Cambria Math"  Click="Symbol4_Click"/>
+                <Button x:Name="Symbol5" Content="∝" Style="{StaticResource NumBtnStyle}" Grid.Column="0" Grid.Row="1" FontFamily="Cambria Math"  Click="Symbol5_Click"/>
+                <Button x:Name="Symbol6" Content="φ" Style="{StaticResource NumBtnStyle}" Grid.Column="0" Grid.Row="0" FontFamily="Cambria Math"  Click="Symbol6_Click"/>
+                <Button x:Name="Symbol7" Content="π" Style="{StaticResource NumBtnStyle}" Grid.Column="1" Grid.Row="6" FontFamily="Cambria Math"  Click="Symbol7_Click"/>
+                <Button x:Name="Symbol8" Content="cos" Style="{StaticResource NumBtnStyle}" Grid.Column="1" Grid.Row="5" FontFamily="Cambria Math" Click="Symbol8_Click"/>
+                <Button x:Name="Symbol9" Content="cos⁻¹" Style="{StaticResource NumBtnStyle}" Grid.Column="1" Grid.Row="4" FontFamily="Cambria Math" Click="Symbol9_Click"/>
+                <Button x:Name="Symbol10" Content="⌀" Style="{StaticResource NumBtnStyle}" Grid.Column="1" Grid.Row="3" FontFamily="Cambria Math"  Click="Symbol10_Click"/>
+                <Button x:Name="Symbol11" Content="∫" Style="{StaticResource NumBtnStyle}" Grid.Column="1" Grid.Row="2" FontFamily="Cambria Math" Click="Symbol11_Click"/>
+                <Button x:Name="Symbol12" Content="∞" Style="{StaticResource NumBtnStyle}" Grid.Column="1" Grid.Row="1" FontFamily="Cambria Math"  Click="Symbol12_Click"/>
+                <Button x:Name="Symbol13" Content="β" Style="{StaticResource NumBtnStyle}" Grid.Column="1" Grid.Row="0" FontFamily="Cambria Math"  Click="Symbol13_Click"/>
+                <Button x:Name="Symbol14" Content="˳" Style="{StaticResource NumBtnStyle}" Grid.Column="2" Grid.Row="6" FontFamily="Cambria Math"  Click="Symbol14_Click"/>
+                <Button x:Name="Symbol15" Content="tan" Style="{StaticResource NumBtnStyle}" Grid.Column="2" Grid.Row="5" FontFamily="Cambria Math" Click="Symbol15_Click"/>
+                <Button x:Name="Symbol16" Content="tan⁻¹" Style="{StaticResource NumBtnStyle}" Grid.Column="2" Grid.Row="4" FontFamily="Cambria Math" Click="Symbol16_Click"/>
+                <Button x:Name="Symbol17" Content="¹" Style="{StaticResource NumBtnStyle}" Grid.Column="2" Grid.Row="3" FontFamily="Cambria Math"  Click="Symbol17_Click"/>
+                <Button x:Name="Symbol18" Content="∬" Style="{StaticResource NumBtnStyle}" Grid.Column="2" Grid.Row="2" FontFamily="Cambria Math" Click="Symbol18_Click"/>
+                <Button x:Name="Symbol19" Content="γ" Style="{StaticResource NumBtnStyle}" Grid.Column="2" Grid.Row="1" FontFamily="Cambria Math"  Click="Symbol19_Click"/>
+                <Button x:Name="Symbol20" Content="λ" Style="{StaticResource NumBtnStyle}" Grid.Column="2" Grid.Row="0" FontFamily="Cambria Math"  Click="Symbol20_Click"/>
+                <Button x:Name="Symbol21" Content="Exp" Style="{StaticResource NumBtnStyle}" Grid.Column="3" Grid.Row="6" FontFamily="Cambria Math" Click="Symbol21_Click"/>
+                <Button x:Name="Symbol22" Content="⁰" Style="{StaticResource NumBtnStyle}" Grid.Column="3" Grid.Row="5" FontFamily="Cambria Math" Click="Symbol22_Click"/>
+                <Button x:Name="Symbol23" Content="⁶" Style="{StaticResource NumBtnStyle}" Grid.Column="3" Grid.Row="4" FontFamily="Cambria Math" Click="Symbol23_Click"/>
+                <Button x:Name="Symbol24" Content="²" Style="{StaticResource NumBtnStyle}" Grid.Column="3" Grid.Row="3" FontFamily="Cambria Math"  Click="Symbol24_Click"/>
+                <Button x:Name="Symbol25" Content="∭" Style="{StaticResource NumBtnStyle}" Grid.Column="3" Grid.Row="2" FontFamily="Cambria Math" Click="Symbol25_Click"/>
+                <Button x:Name="Symbol26" Content="°" Style="{StaticResource NumBtnStyle}" Grid.Column="3" Grid.Row="1" FontFamily="Cambria Math"  Click="Symbol26_Click"/>
+                <Button x:Name="Symbol27" Content="µ" Style="{StaticResource NumBtnStyle}" Grid.Column="3" Grid.Row="0" FontFamily="Cambria Math"  Click="Symbol27_Click"/>
+                <Button x:Name="Symbol28" Content="ln" Style="{StaticResource NumBtnStyle}" Grid.Column="4" Grid.Row="6" FontFamily="Cambria Math" Click="Symbol28_Click"/>
+                <Button x:Name="Symbol29" Content="⁻" Style="{StaticResource NumBtnStyle}" Grid.Column="4" Grid.Row="5" FontFamily="Cambria Math" Click="Symbol29_Click"/>
+                <Button x:Name="Symbol30" Content="⁷" Style="{StaticResource NumBtnStyle}" Grid.Column="4" Grid.Row="4" FontFamily="Cambria Math" Click="Symbol30_Click"/>
+                <Button x:Name="Symbol31" Content="³" Style="{StaticResource NumBtnStyle}" Grid.Column="4" Grid.Row="3" FontFamily="Cambria Math"  Click="Symbol31_Click"/>
+                <Button x:Name="Symbol32" Content="∮" Style="{StaticResource NumBtnStyle}" Grid.Column="4" Grid.Row="2" FontFamily="Cambria Math" Click="Symbol32_Click"/>
+                <Button x:Name="Symbol33" Content="σ" Style="{StaticResource NumBtnStyle}" Grid.Column="4" Grid.Row="1" FontFamily="Cambria Math"  Click="Symbol33_Click"/>
+                <Button x:Name="Symbol34" Content="δ" Style="{StaticResource NumBtnStyle}" Grid.Column="4" Grid.Row="0" FontFamily="Cambria Math"  Click="Symbol34_Click"/>
+                <Button x:Name="Symbol35" Content="log₁₀" Style="{StaticResource NumBtnStyle}" Grid.Column="5" Grid.Row="6" FontFamily="Cambria Math" Click="Symbol35_Click"/>
+                <Button x:Name="Symbol36" Content="ⁿ" Style="{StaticResource NumBtnStyle}" Grid.Column="5" Grid.Row="5" FontFamily="Cambria Math" Click="Symbol36_Click"/>
+                <Button x:Name="Symbol37" Content="⁸" Style="{StaticResource NumBtnStyle}" Grid.Column="5" Grid.Row="4" FontFamily="Cambria Math" Click="Symbol37_Click"/>
+                <Button x:Name="Symbol38" Content="⁴" Style="{StaticResource NumBtnStyle}" Grid.Column="5" Grid.Row="3" FontFamily="Cambria Math"  Click="Symbol38_Click"/>
+                <Button x:Name="Symbol69" Content="∯" Style="{StaticResource NumBtnStyle}" Grid.Column="5" Grid.Row="2" FontFamily="Cambria Math" Click="Symbol69_Click"/>
+                <Button x:Name="Symbol39" Content="θ" Style="{StaticResource NumBtnStyle}" Grid.Column="5" Grid.Row="1" FontFamily="Cambria Math"  Click="Symbol39_Click"/>
+                <Button x:Name="Symbol40" Content="η" Style="{StaticResource NumBtnStyle}" Grid.Column="5" Grid.Row="0" FontFamily="Cambria Math"  Click="Symbol40_Click"/>
+                <Button x:Name="Symbol41" Content="log" Style="{StaticResource NumBtnStyle}" Grid.Column="6" Grid.Row="6" FontFamily="Cambria Math" Click="Symbol41_Click"/>
+                <Button x:Name="Symbol42" Content="√" Style="{StaticResource NumBtnStyle}" Grid.Column="6" Grid.Row="5" FontFamily="Cambria Math" Click="Symbol42_Click"/>
+                <Button x:Name="Symbol43" Content="⁹" Style="{StaticResource NumBtnStyle}" Grid.Column="6" Grid.Row="4" FontFamily="Cambria Math"  Click="Symbol43_Click"/>
+                <Button x:Name="Symbol44" Content="⁵" Style="{StaticResource NumBtnStyle}" Grid.Column="6" Grid.Row="3" FontFamily="Cambria Math"  Click="Symbol44_Click"/>
+                <Button x:Name="Symbol45" Content="∰" Style="{StaticResource NumBtnStyle}" Grid.Column="6" Grid.Row="2" FontFamily="Cambria Math" Click="Symbol45_Click"/>
+                <Button x:Name="Symbol46" Content="ε" Style="{StaticResource NumBtnStyle}" Grid.Column="6" Grid.Row="1" FontFamily="Cambria Math"  Click="Symbol46_Click"/>
+                <Button x:Name="Symbol47" Content="⁰K" Style="{StaticResource NumBtnStyle}" Grid.Column="6" Grid.Row="0" FontFamily="Cambria Math"  Click="Symbol47_Click"/>
+                <Button x:Name="Symbol48" Content="10⁻³" Style="{StaticResource NumBtnStyle}" Grid.Column="7" Grid.Row="6" FontFamily="Cambria Math"  Click="Symbol48_Click"/>
+                <Button x:Name="Symbol49" Content="∛" Style="{StaticResource NumBtnStyle}" Grid.Column="7" Grid.Row="5" FontFamily="Cambria Math" Click="Symbol49_Click"/>
+                <Button x:Name="Symbol50" Content="⍺" Style="{StaticResource NumBtnStyle}" Grid.Column="7" Grid.Row="4" FontFamily="Cambria Math"  Click="Symbol50_Click"/>
+                <Button x:Name="Symbol51" Content="Ω" Style="{StaticResource NumBtnStyle}" Grid.Column="7" Grid.Row="3" FontFamily="Cambria Math"  Click="Symbol51_Click"/>
+                <Button x:Name="Symbol52" Content="∱" Style="{StaticResource NumBtnStyle}" Grid.Column="7" Grid.Row="2" FontFamily="Cambria Math" Click="Symbol52_Click"/>
+                <Button x:Name="Symbol53" Content="ε˳" Style="{StaticResource NumBtnStyle}" Grid.Column="7" Grid.Row="1" FontFamily="Cambria Math"  Click="Symbol53_Click"/>
+                <Button x:Name="Symbol54" Content="℃" Style="{StaticResource NumBtnStyle}" Grid.Column="7" Grid.Row="0" FontFamily="Cambria Math"  Click="Symbol54_Click"/>
+                <Button x:Name="Symbol55" Content="10³" Style="{StaticResource NumBtnStyle}" Grid.Column="8" Grid.Row="6" FontFamily="Cambria Math"  Click="Symbol55_Click"/>
+                <Button x:Name="Symbol56" Content="∓" Style="{StaticResource NumBtnStyle}" Grid.Column="8" Grid.Row="5" FontFamily="Cambria Math"  Click="Symbol56_Click"/>
+                <Button x:Name="Symbol57" Content="ω" Style="{StaticResource NumBtnStyle}" Grid.Column="8" Grid.Row="4" FontFamily="Cambria Math"  Click="Symbol57_Click"/>
+                <Button x:Name="Symbol58" Content="℧" Style="{StaticResource NumBtnStyle}" Grid.Column="8" Grid.Row="3" FontFamily="Cambria Math"  Click="Symbol58_Click"/>
+                <Button x:Name="Symbol59" Content="∲" Style="{StaticResource NumBtnStyle}" Grid.Column="8" Grid.Row="2" FontFamily="Cambria Math"  Click="Symbol59_Click"/>
+                <Button x:Name="Symbol60" Content="τ" Style="{StaticResource NumBtnStyle}" Grid.Column="8" Grid.Row="1" FontFamily="Cambria Math"  Click="Symbol60_Click"/>
+                <Button x:Name="Symbol61" Content="μ˳" Style="{StaticResource NumBtnStyle}" Grid.Column="8" Grid.Row="0" FontFamily="Cambria Math"  Click="Symbol61_Click"/>
+                <Button x:Name="Symbol62" Content="∑" Style="{StaticResource NumBtnStyle}" Grid.Column="9" Grid.Row="6" FontFamily="Cambria Math"  Click="Symbol62_Click"/>
+                <Button x:Name="Symbol63" Content="⋔" Style="{StaticResource NumBtnStyle}" Grid.Column="9" Grid.Row="5" FontFamily="Cambria Math"  Click="Symbol63_Click"/>
+                <Button x:Name="Symbol64" Content="⍉" Style="{StaticResource NumBtnStyle}" Grid.Column="9" Grid.Row="4" FontFamily="Cambria Math"  Click="Symbol64_Click"/>
+                <Button x:Name="Symbol65" Content="ɳ" Style="{StaticResource NumBtnStyle}" Grid.Column="9" Grid.Row="3" FontFamily="Cambria Math"  Click="Symbol65_Click"/>
+                <Button x:Name="Symbol66" Content="∳" Style="{StaticResource NumBtnStyle}" Grid.Column="9" Grid.Row="2" FontFamily="Cambria Math"  Click="Symbol66_Click"/>
+                <Button x:Name="Symbol67" Content="ρ" Style="{StaticResource NumBtnStyle}" Grid.Column="9" Grid.Row="1" FontFamily="Cambria Math"  Click="Symbol67_Click"/>
+                <Button x:Name="Symbol68" Content="Ѱ" Style="{StaticResource NumBtnStyle}" Grid.Column="9" Grid.Row="0" FontFamily="Cambria Math"  Click="Symbol68_Click"/>
+
+
+            </Grid>
+            
+            
+        </Grid>
+
+        <!--Data Grid-->
+        <Grid x:Name="DataGridGrid" Margin="10,275,10,10" Visibility="Visible">
+            <DataGrid x:Name="DataViewer"  Margin="0,0,4,0" RowHeight="30" ItemsSource="{Binding Source={StaticResource ConstantsData},XPath=Constants/*}"
+                      Style="{StaticResource Dataviewstyle}" IsTextSearchEnabled="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding XPath=@name}"/>
+                    <DataGridTextColumn Header="Value" Binding="{Binding XPath=@value}"/>
+                    <DataGridTextColumn Header="Description" Binding="{Binding XPath=@description}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <DataGrid x:Name="DataViewer2" Visibility="Hidden"  Margin="0,0,4,0" RowHeight="30" ItemsSource="{Binding Source={StaticResource FormulasData},XPath=Formulas/*}"
+                      Style="{StaticResource Dataviewstyle}" IsTextSearchEnabled="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding XPath=@name}"/>
+                    <DataGridTextColumn Header="Value" Binding="{Binding XPath=@value}"/>
+                    <DataGridTextColumn Header="Description" Binding="{Binding XPath=@description}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+
+        </Grid>
+
+    </Grid>
+</Window>

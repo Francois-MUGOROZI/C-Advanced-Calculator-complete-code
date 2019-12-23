@@ -1,0 +1,159 @@
+﻿<Window x:Class="Calckit.GUIs.ConverterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calckit.GUIs"
+        mc:Ignorable="d"
+        Title="Converter-Calckit" Height="550" Width="400" MaxHeight="550" MaxWidth="400" MinHeight="550" MinWidth="400"
+        Style="{StaticResource WindowStyle}" Loaded="Window_Loaded">
+    <Grid>
+        <!--Option buttons -->
+
+        <Button x:Name="Conveteroptionbtn" 
+                Margin="10,10,345,470"
+                Content="&#x2261;"
+                Style="{StaticResource CtrlBtnStyle}"
+                MaxHeight="30" MaxWidth="25"
+                Opacity="0.9" Click="Conveteroptionbtn_Click"
+                />
+
+        <Label Margin="51,10,144,462"
+               Content="Length"
+               Style="{StaticResource LabelStyle}"
+               MaxHeight="32" MaxWidth="300"
+               x:Name="ConvertOptLabel"/>
+
+
+        <!--Text boxes and from to controls-->
+
+        <TextBox x:Name="Convbox1"
+                 
+                Style="{StaticResource TextboxStyle}" HorizontalScrollBarVisibility="Auto"
+                 Text=""
+                 MaxHeight="35" MaxWidth="182"
+                 Margin="10,62,160,381" PreviewTextInput="Convbox1_PreviewTextInput" MouseDown="Convbox1_MouseDown" TextChanged="Convbox1_TextChanged"/>
+
+        <TextBox x:Name="Convbox2"
+                 IsReadOnly="True"
+                 Text="" HorizontalScrollBarVisibility="Auto"
+                 Style="{StaticResource TextboxStyle}"
+                 MaxHeight="35" MaxWidth="182"
+                 Margin="10,176,160,278"/>
+
+
+        <ComboBox x:Name="Fromcombo" Margin="10,138,160,346" Style="{StaticResource ComboStyle}" SelectionChanged="Fromcombo_SelectionChanged"/>
+
+
+        <ComboBox x:Name="ToCombo" Margin="10,246,160,239"
+               Style="{StaticResource ComboStyle}" SelectionChanged="ToCombo_SelectionChanged"/>
+
+        <ComboBox x:Name="MultsFromcombo" Margin="237,79,19,407" Style="{StaticResource ComboStyle}" SelectionChanged="MultsFromcombo_SelectionChanged"/>
+
+        <ComboBox x:Name="MultsTocombo" Margin="237,192,19,296" Style="{StaticResource ComboStyle}" SelectionChanged="MultsTocombo_SelectionChanged"/>
+
+
+        <Grid Margin="16,285,250,200">
+
+            <RadioButton x:Name="Unitsradio"
+                Content="Units" Margin="0,0,56,0"
+                Foreground="White" IsChecked="True"
+               ToolTip="Switch to Units converter"
+                Opacity="0.6" Checked="Unitsradio_Checked"/>
+
+            <RadioButton x:Name="Multsradio"
+                Content="Mults" Margin="56,0,0,0"
+                Foreground="White"
+                ToolTip="Switch to Units Multiples converter"
+                Opacity="0.6" RenderTransformOrigin="1.078,0.579" Checked="Multsradio_Checked"/>
+
+        </Grid>
+
+
+        <Grid Margin="16,324,10,24">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="Zero" Content="0" Grid.Column="0" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="Zero_Click"/>
+            <Button x:Name="One" Content="1" Grid.Column="0" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="One_Click"/>
+            <Button x:Name="Two" Content="2" Grid.Column="1" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="Two_Click"/>
+            <Button x:Name="Three" Content="3" Grid.Column="2" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="Three_Click"/>
+            <Button x:Name="Four" Content="4" Grid.Column="0" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="Four_Click"/>
+            <Button x:Name="Five" Content="5" Grid.Column="1" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="Five_Click"/>
+            <Button x:Name="Six" Content="6" Grid.Column="2" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="Six_Click"/>
+            <Button x:Name="Seven" Content="7" Grid.Column="0" Grid.Row="0" Style="{StaticResource NumBtnStyle}" Click="Seven_Click"/>
+            <Button x:Name="Eight" Content="8" Grid.Column="1" Grid.Row="0" Style="{StaticResource NumBtnStyle}" Click="Eight_Click"/>
+            <Button x:Name="Nine" Content="9" Grid.Column="2" Grid.Row="0" Style="{StaticResource NumBtnStyle}" Click="Nine_Click"/>
+            <Button x:Name="Point" Content="." Grid.Column="1" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="Point_Click"/>
+
+
+
+            <Button x:Name="E" Content="e" Grid.Column="3" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="E_Click"/>
+            <Button x:Name="Pi" Content="π" Grid.Column="3" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="Pi_Click"/>
+            <Button x:Name="Xto" Content="xⁿ" Grid.Column="5" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="Xto_Click"/>
+            <Button x:Name="Exp" Content="exp" Grid.Column="4" Grid.Row="1" Style="{StaticResource NumBtnStyle}" Click="Exp_Click"/>
+
+            <Button x:Name="Tento3" Content="10&#x00B3;" Grid.Column="4" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="Tento3_Click"/>
+            <Button x:Name="Tento_3" Content="10⁻&#x00B3;" Grid.Column="4" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="Tento_3_Click"/>
+
+            <Button x:Name="C" Content="C" Grid.Column="4" Grid.Row="0" Style="{StaticResource FuncBtnStyle}" Click="C_Click"/>
+            <Button x:Name="Delete" Content="" Grid.Column="5" Grid.Row="0" Style="{StaticResource FuncBtnStyle}" FontFamily="Segoe MDL2 Assets" Click="Delete_Click"/>
+            <Button x:Name="CE" Content="CE" Grid.Column="3" Grid.Row="0" Style="{StaticResource FuncBtnStyle}" Click="CE_Click"/>
+
+            <Button x:Name="Mv" Content="M&#x02C5;" Grid.Column="6" Grid.Row="0" Style="{StaticResource FuncBtnStyle}" Click="Mv_Click"/>
+            <Button x:Name="MS" Content="MS" Grid.Column="6" Grid.Row="1" Style="{StaticResource FuncBtnStyle}" Click="MS_Click"/>
+            <Button x:Name="MR" Content="MR" Grid.Column="6" Grid.Row="2" Style="{StaticResource FuncBtnStyle}" Click="MR_Click"/>
+            <Button x:Name="MC" Content="MC" Grid.Column="6" Grid.Row="3" Style="{StaticResource FuncBtnStyle}" Click="MC_Click"/>
+            <Button x:Name="Tento6" Content="10⁶" Grid.Column="5" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="Tento6_Click"/>
+            <Button x:Name="Tento_6" Content="10⁻⁶" Grid.Column="5" Grid.Row="2" Style="{StaticResource NumBtnStyle}" Click="Tento_6_Click"/>
+            <Button x:Name="Minus" Content="-" Grid.Column="3" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="Minus_Click"/>
+            <Button x:Name="DZero" Content="00" Grid.Column="2" Grid.Row="3" Style="{StaticResource NumBtnStyle}" Click="DZero_Click"/>
+
+        </Grid>
+
+        <!--Memory-->
+
+        <ListBox x:Name="MemoryArea" Visibility="Hidden"
+                 Style="{StaticResource MemoStyle}"
+                 Margin="10,312,67,10"></ListBox>
+
+        <!--ConverterOpLv-->
+
+        <ListView x:Name="ConverterOpListview" 
+                  Visibility="Hidden"
+                  Style="{StaticResource ListViewStyle}"
+                  Margin="34,42,147,192" SelectionChanged="ConverterOpListview_SelectionChanged" IsVisibleChanged="ConverterOpListview_IsVisibleChanged" 
+                 >
+
+            <ListViewItem Content="Length" Style="{StaticResource ListViewItemStyle}"/>
+            <ListViewItem Content="Mass and Weight" Style="{StaticResource ListViewItemStyle}"/>
+            <ListViewItem Content="Volume" Style="{StaticResource ListViewItemStyle}"/>
+            <ListViewItem Content="Temperature" Style="{StaticResource ListViewItemStyle}"/>
+            <ListViewItem Content="Energy" Style="{StaticResource ListViewItemStyle}"/>
+            <ListViewItem Content="Speed" Style="{StaticResource ListViewItemStyle}"/>
+            <ListViewItem Content="Area" Style="{StaticResource ListViewItemStyle}"/>
+            <ListViewItem Content="Power" Style="{StaticResource ListViewItemStyle}"/>
+            <ListViewItem Content="Pressure" Style="{StaticResource ListViewItemStyle}"/>
+            <ListViewItem Content="Angle" Style="{StaticResource ListViewItemStyle}"/>
+            <ListViewItem Content="Time" Style="{StaticResource ListViewItemStyle}"/>
+
+        </ListView>
+
+
+
+    </Grid>
+</Window>

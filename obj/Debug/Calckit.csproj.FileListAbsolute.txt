@@ -1,0 +1,106 @@
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\Calckit.csprojResolveAssemblyReference.cache
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\App.g.cs
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\Calckit_MarkupCompile.cache
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\Calckit_MarkupCompile.lref
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\Calckit.exe.config
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\Calckit.exe
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\Calckit.pdb
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\Resources\ControlStyles.baml
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\Calckit.g.resources
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\Calckit.Properties.Resources.resources
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\Calckit.csproj.GenerateResource.cache
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\Calckit.csproj.CoreCompileInputs.cache
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\Calckit.exe
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\Calckit.pdb
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\App.baml
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\Calckit.csproj.CopyComplete
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\Scientific_Calckit.baml
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\Scientific_Calckit.g.cs
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\ConstFormWindow.g.cs
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\ConverterWindow.g.cs
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\DateTimeWindow.g.cs
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\DigitalWindow.g.cs
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\StdCackWindow.g.cs
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\PromptWindow.g.cs
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\ConstFormWindow.baml
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\ConverterWindow.baml
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\DateTimeWindow.baml
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\DigitalWindow.baml
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\StdCackWindow.baml
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\PromptWindow.baml
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\HelpWindow.g.cs
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\HelpWindow.baml
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\xFunc.Maths.dll
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\xFunc.Maths.pdb
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\xFunc.Maths.xml
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\ru\xFunc.Maths.resources.dll
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\uk\xFunc.Maths.resources.dll
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\UnitsConverterlib.dll
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\UnitsConverterlib.pdb
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\TimeConverterlib.dll
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\TimeConverterlib.pdb
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\Newtonsoft.Json.dll
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\Newtonsoft.Json.xml
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\ColorWindow.g.cs
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\ColorWindow.baml
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\ColorPickerWPF.dll
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\ColorPickerWPF.pdb
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\WriteableBitmapEx.Wpf.dll
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\WriteableBitmapEx.Wpf.xml
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\InfoUnitsConverterlib.dll
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\InfoUnitsConverterlib.pdb
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\Subnettinglib.dll
+D:\Notes and tutorials\Enginnering\My search\Programming\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\Subnettinglib.pdb
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\Calckit.exe.config
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\Calckit.exe
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\Calckit.pdb
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\ColorPickerWPF.dll
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\InfoUnitsConverterlib.dll
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\Newtonsoft.Json.dll
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\Subnettinglib.dll
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\TimeConverterlib.dll
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\UnitsConverterlib.dll
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\WriteableBitmapEx.Wpf.dll
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\xFunc.Maths.dll
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\ColorPickerWPF.pdb
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\InfoUnitsConverterlib.pdb
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\Newtonsoft.Json.xml
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\Subnettinglib.pdb
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\TimeConverterlib.pdb
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\UnitsConverterlib.pdb
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\WriteableBitmapEx.Wpf.xml
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\xFunc.Maths.pdb
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\xFunc.Maths.xml
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\ru\xFunc.Maths.resources.dll
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\bin\Debug\uk\xFunc.Maths.resources.dll
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\Calckit.csprojAssemblyReference.cache
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\Resources\ControlStyles.baml
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\ColorWindow.g.cs
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\ConstFormWindow.g.cs
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\ConverterWindow.g.cs
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\DateTimeWindow.g.cs
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\DigitalWindow.g.cs
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\HelpWindow.g.cs
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\Scientific_Calckit.g.cs
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\StdCackWindow.g.cs
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\PromptWindow.g.cs
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\App.g.cs
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\Calckit_MarkupCompile.cache
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\Calckit_MarkupCompile.lref
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\App.baml
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\ColorWindow.baml
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\ConstFormWindow.baml
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\ConverterWindow.baml
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\DateTimeWindow.baml
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\DigitalWindow.baml
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\HelpWindow.baml
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\Scientific_Calckit.baml
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\StdCackWindow.baml
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\GUIs\PromptWindow.baml
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\Calckit.g.resources
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\Calckit.Properties.Resources.resources
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\Calckit.csproj.GenerateResource.cache
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\Calckit.csproj.CoreCompileInputs.cache
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\Calckit.csproj.CopyComplete
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\Calckit.exe
+D:\Engineering\Research\Programming\VisualStudio\Engineering Toolkit\CalckitFinal\Calckit\obj\Debug\Calckit.pdb

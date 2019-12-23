@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Formulas>
+  <formula name="Velocity" value="dx/dt" description="Change in distance over change in time(m/s)" />
+  <formula name="Distance(one dim motion)" value="vt+at²/2" description="distance in one dimension motion" />
+  <formula name="velocity" value="v˳+at" description="velocity in one dimension motion" />
+  <formula name="velocity²" value="v˳²+2as" description="velocity squared" />
+  <formula name="Average velocity" value="(v+v˳)/2" description="No description" />
+  <formula name="Pressure" value="F/A" description="in (N/m²)" />
+  <formula name="Density" value="M/V" description="Mass/volume in (kg/m³)" />
+  <formula name="Angular momentum" value="rxp" description="r is radius and p is linear momentum" />
+  <formula name="Torque(τ)" value="rxF" description="r is radius and F is linear force" />
+  <formula name="Centripetal force" value="mv²" description="No description" />
+  <formula name="Centripetal acceleration" value="v²" description="No description" />
+  <formula name="Center of mass" value="∑Nr" description="r is position vector for all parrticles" />
+  <formula name="Work(physical)" value="Fxd" description="forcexdistance(Nm)" />
+  <formula name="potential energy" value="mgh" description="PE(Gravitational)" />
+  <formula name="kinetic energy" value="mv²/2" description="Transitional" />
+  <formula name="Max height of projectile" value="v˳sin2θ/2g" description="No description" />
+  <formula name="H range of projectile" value="v˳2sin2θ/g" description="No description" />
+  <formula name="period of simple pendulum" value="2π√(l/g)" description="l is the length of pendulum" />
+  <formula name="Period of conical pendulum" value="2π√(lcosθ/g)" description="l is the length of pendulum" />
+  <formula name="Capacitance" value="Q/V" description="Charge/voltage" />
+  <formula name="Capacitance(parallel plates)" value="kε˳(A/d)" description="k is dielectric" />
+  <formula name="Capacitance(cylindrical)" value="2πkε˳((L/ln(b/a))" description="k is dielectric" />
+  <formula name="Capacitance(spherical)" value="4πkε˳((ab)/(b-a))" description="a is inner radius and b is outer radius" />
+  <formula name="Energy Stored in Inductor" value="LI²/2" description="L is indunctance" />
+  <formula name="Inductance of cylindrical air core" value="μ˳KN²A/l" description="l is length of coil" />
+  <formula name="Boyle's Law" value="P1V1=P2V2" description="at constant Temp" />
+  <formula name="Charles's Law" value="V1/T1=V2/T2" description="at constant pressure" />
+  <formula name="Equation of state for ideal gas" value="PV=nRT=NkT" description="n is number of moles" />
+</Formulas>
